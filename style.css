@@ -1,0 +1,225 @@
+/* Page */
+
+body {
+    background: linear-gradient(to right, #35173f, #172f5c);
+    color: white;
+    font-family: Arial;
+    margin: 0;
+}
+
+
+/* Haut de page */
+
+header {
+    background: linear-gradient(to right, #35173f, #172f5c);
+    padding: 80px 7% 35px 7%;
+}
+
+
+/* Titre principal */
+
+h1 {
+    font-size: 42px;
+    font-weight: Bold;
+    margin: 0;
+
+    /* Met le texte et le logo sur la même ligne */
+    display: flex;
+
+    /* Centre le logo par rapport au texte */
+    align-items: center;
+
+    gap: 20px;
+}
+
+
+/* Logo Atari ST */
+
+h1 img {
+    width: 300px;
+}
+
+
+/* Petit texte sous le titre */
+
+header p {
+    font-size: 25px;
+    margin-top: 15px;
+    margin-bottom: 40px;
+}
+
+
+/* Remonte le sous-titre sous le logo sur les deux pages */
+
+.header-analyse p,
+.header-experience p {
+    margin-top: -100px;
+}
+
+
+/* Boutons du menu */
+
+.bouton {
+    color: #e0b4f6;
+    border: 1px solid #e0b4f6;
+    padding: 10px;
+    margin-right: 20px;
+    text-decoration: none;
+}
+
+
+/* Bouton de la page actuelle */
+
+.actif {
+    color: #f510fd;
+    border-color: #f510fd;
+    font-weight: Bold;
+
+}
+
+
+/* Contenu */
+
+main {
+    width: 88%;
+    margin: auto;
+    padding-bottom: 60px;
+}
+
+
+/* Titres des parties */
+
+h2 {
+    color: #ff007b;
+    font-size: 24px;
+    font-weight: Bold;
+    margin-top: 70px;
+    margin-bottom: 30px;
+}
+
+
+/* Texte */
+
+p {
+    font-size: 17px;
+    line-height: 1.6;
+}
+
+
+/* Images */
+
+main img {
+    width: 350px;
+
+    /* Arrondit les coins de l'image */
+    border-radius: 10px;
+
+    /* Ajoute un trait blanc fin autour de l'image */
+    border: 1px solid white;
+}
+
+
+/* Image à gauche */
+
+.image-gauche {
+    display: flex;
+
+    /* Centre le texte verticalement par rapport à l'image */
+    align-items: center;
+
+    gap: 40px;
+    margin-top: 30px;
+    margin-bottom: 40px;
+}
+
+
+/* Image à droite */
+
+.image-droite {
+    display: flex;
+
+    /* Met l'image à droite et le texte à gauche */
+    flex-direction: row-reverse;
+
+    /* Centre le texte verticalement par rapport à l'image */
+    align-items: center;
+
+    gap: 40px;
+    margin-top: 30px;
+    margin-bottom: 40px;
+}
+
+
+/* Grande image des mains des héros */
+
+.image-large {
+    /* Centre l'image et sa légende */
+    text-align: center;
+
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
+
+/* Taille de la grande image des mains */
+
+.image-large img {
+    width: 90%;
+}
+
+
+/* Grande image de l'équipe */
+
+.image-equipe {
+    /* Centre l'image et sa légende */
+    text-align: center;
+
+    margin-top: 50px;
+    margin-bottom: 60px;
+}
+
+
+/* Taille de l'image de l'équipe */
+
+.image-equipe img {
+    width: 60%;
+}
+
+
+/* Légendes */
+
+.legende {
+    color: #df4aa5;
+    font-size: 12px;
+}
+
+
+/* Bouton en bas de page */
+
+.lien-bas {
+    margin-top: 60px;
+    margin-bottom: 30px;
+}
+
+
+.lien-bas a {
+    color: #f510fd;
+    border: 1px solid #f510fd;
+    padding: 12px;
+    text-decoration: none;
+}
+
+
+/* Pied de page */
+
+footer {
+    background: linear-gradient(to right, #35173f, #172f5c);
+    text-align: center;
+    padding: 25px;
+}
+
+
+footer p {
+    font-size: 10px;
+    color: #f2bff4;
+}
