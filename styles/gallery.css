@@ -1,33 +1,138 @@
+/*
+  Cadrillage : toutes les sources sont carrées (1:1), donc la grille
+  fixe ce ratio pour chaque case plutôt que de forcer un recadrage
+  4/5 hétérogène. Résultat : lignes et colonnes parfaitement alignées,
+  comme une mosaïque de tuiles identiques.
+
+  Séparateurs : le gap porte une vraie couleur (--color-border) via
+  background-color sur .gallery, visible entre chaque tuile, quel
+  que soit le thème clair/sombre.
+*/
 .gallery {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
-  gap: var(--space-5);
+  grid-template-columns: repeat(4, 1fr);
+  gap: 3px;
+  background-color: var(--color-border);
+  border: 3px solid var(--color-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
 }
 
 .gallery__item {
+  position: relative;
+  margin: 0;
   background-color: var(--color-paper-raised);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-md);
   overflow: hidden;
-  box-shadow: var(--shadow-soft);
 }
 
 .gallery__image {
-  aspect-ratio: 4 / 5;
+  position: relative;
+  aspect-ratio: 1 / 1;
   background-color: var(--color-accent-soft);
   overflow: hidden;
 }
 
 .gallery__image img {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
+  display: block;
+  transition: transform var(--duration-base) var(--ease-standard);
 }
 
+.gallery__item:hover .gallery__image img,
+.gallery__item:focus-within .gallery__image img {
+  transform: scale(1.08);
+}
+
+/*
+  Dégradé d'opacité, toujours visible, qui garantit un contraste
+  texte >= 4.5:1 (WCAG 1.4.3 AA) sur toute la hauteur occupée par la
+  légende, quelle que soit la couleur de l'image en dessous. Léger
+  renforcement au survol/focus pour un effet de profondeur, mais
+  jamais nécessaire à la lisibilité : le repos seul suffit déjà.
+*/
+.gallery__image::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(10, 8, 14, 0.92) 0%,
+    rgba(10, 8, 14, 0.78) 45%,
+    rgba(10, 8, 14, 0) 100%
+  );
+  transition: opacity var(--duration-base) var(--ease-standard);
+  pointer-events: none;
+}
+
+.gallery__item:hover .gallery__image::after,
+.gallery__item:focus-within .gallery__image::after {
+  opacity: 1;
+}
+
+/*
+  Légende : posée en overlay absolu, cantonnée à l'intérieur du
+  cadre carré (jamais au-delà : plus de débordement possible), et
+  entièrement visible en permanence sans dépendre du survol ou du
+  focus (WCAG 1.4.13 — tout contenu révélé au hover doit rester
+  consultable au clavier/tactile ; on évite le problème en ne
+  masquant jamais le texte). Si une légende est exceptionnellement
+  longue, un défilement interne prend le relais plutôt qu'un
+  débordement hors de la tuile.
+*/
 .gallery__caption {
-  padding: var(--space-3) var(--space-4);
-  font-size: var(--step-sm);
-  color: var(--color-ink-muted);
+  position: absolute;
+  inset: auto 0 0 0;
+  max-height: 55%;
+  overflow-y: auto;
+  padding: var(--space-3);
+  font-size: var(--step-xs);
+  line-height: var(--leading-normal);
+  color: #FFFFFF;
+  z-index: 1;
+}
+
+.gallery__image:focus-visible {
+  outline: 3px solid var(--color-focus);
+  outline-offset: -3px;
+}
+
+/* Responsive strict : 4 colonnes desktop -> 3 -> 2 -> 1,
+   paliers alignés sur le reste du site (cf. media-slider). Le gap
+   reste minimal (3px, même couleur --color-border) à tous les
+   paliers pour conserver l'effet mosaïque avec séparateurs nets. */
+@media (max-width: 64rem) {
+  .gallery {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 48rem) {
+  .gallery {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 26rem) {
+  .gallery {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gallery__image img,
+  .gallery__image::after,
+  .gallery__caption {
+    transition: none;
+  }
+
+  .gallery__item:hover .gallery__image img,
+  .gallery__item:focus-within .gallery__image img {
+    transform: none;
+  }
 }
 
 .media-slider {
