@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Analyse et déconstruction - Clara Cahours de Virgile</title>
+  <meta name="description" content="Devoir de deuxième année : analyse en profondeur d'un jeu mobile (Jetpack Joyride), par Clara Cahours de Virgile." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="../styles/tokens.css" />
+  <link rel="stylesheet" href="../styles/base.css" />
+  <link rel="stylesheet" href="../styles/layout.css" />
+  <link rel="stylesheet" href="../styles/navbar.css" />
+  <link rel="stylesheet" href="../styles/hero.css" />
+  <link rel="stylesheet" href="../styles/cards.css" />
+  <link rel="stylesheet" href="../styles/gallery.css" />
+  <link rel="stylesheet" href="../styles/lightbox.css" />
+  <link rel="stylesheet" href="../styles/project-page.css" />
+  <link rel="stylesheet" href="../styles/footer.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Aller au contenu principal</a>
+
+  <header>
+    <nav class="navbar" aria-label="Navigation principale">
+      <a class="navbar__brand" href="../index.html" style="color: inherit; text-decoration: none;">Clara</a>
+
+      <button class="navbar__icon-btn navbar__menu-toggle" data-menu-toggle aria-expanded="false" aria-controls="nav-links" aria-label="Ouvrir le menu">
+        <span class="navbar__burger" aria-hidden="true">
+          <span class="navbar__burger-bar"></span>
+          <span class="navbar__burger-bar"></span>
+          <span class="navbar__burger-bar"></span>
+        </span>
+      </button>
+
+      <ul class="navbar__links" id="nav-links" data-nav-links data-open="false">
+        <li><a class="navbar__link" href="../index.html#about" data-i18n="nav.about">Qui suis-je</a></li>
+        <li><a class="navbar__link" href="../index.html#path" data-i18n="nav.path">Parcours</a></li>
+        <li><a class="navbar__link" href="../index.html#projects" data-i18n="nav.projects">Projets</a></li>
+        <li><a class="navbar__link" href="../index.html#gallery" data-i18n="nav.art">Productions visuelles</a></li>
+        <li><a class="navbar__link" href="../index.html#contact" data-i18n="nav.contact">Contact</a></li>
+      </ul>
+
+      <div class="navbar__controls">
+        <button class="navbar__icon-btn" data-theme-toggle aria-pressed="false" data-i18n-attr="aria-label:theme.toggle" aria-label="Changer le thème">
+          <svg class="icon-moon" aria-hidden="true"><use href="../icons/sprite.svg#icon-moon"></use></svg>
+          <svg class="icon-sun" aria-hidden="true"><use href="../icons/sprite.svg#icon-sun"></use></svg>
+        </button>
+
+        <div class="navbar__lang" role="group" data-i18n-attr="aria-label:lang.toggle" aria-label="Changer de langue">
+          <button class="navbar__lang-btn" data-lang-btn="fr" aria-pressed="true">FR</button>
+          <button class="navbar__lang-btn" data-lang-btn="en" aria-pressed="false">EN</button>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main-content">
+    <section class="project-page container">
+      <a class="project-page__back" href="../index.html#projects" data-i18n="project.back">
+        <svg aria-hidden="true"><use href="../icons/sprite.svg#icon-chevron-left"></use></svg>
+        Retour aux projets
+      </a>
+
+      <div class="project-grid">
+        <article class="project-card" id="project-analysis-page">
+          <div class="project-card__media">
+            <img src="../images/projects/analyse-deconstruction-jetpack-joyride/cover.jpg" alt="Jaquette du devoir Analyse et déconstruction, Jetpack Joyride" data-placeholder />
+          </div>
+          <div class="project-card__body">
+            <p class="project-card__meta" data-i18n="project.analysis.team">Devoir de deuxième année</p>
+            <h1 class="project-card__title" data-i18n="analysis.page.title">Analyse et déconstruction : Jetpack Joyride</h1>
+            <p class="project-card__subtitle" data-i18n="analysis.page.subtitle">Analyse en profondeur d’un jeu mobile</p>
+
+            <p class="project-card__text" data-i18n="analysis.page.intro">
+              Pour ce devoir de deuxième année, j’ai choisi de décortiquer Jetpack Joyride, jeu mobile développé par Halfbrick Studios. L’objectif était d’en analyser en profondeur les mécaniques, la boucle de gameplay, la direction artistique et les intentions de design, afin de comprendre ce qui rend ce titre aussi addictif et efficace.
+            </p>
+
+            <h2 class="project-card__role-heading" data-i18n="analysis.page.sommaireHeading">Contenu du document</h2>
+            <ul class="project-card__role-text">
+              <li data-i18n="analysis.page.sommaire.1">Présentation du jeu et de son contexte de sortie</li>
+              <li data-i18n="analysis.page.sommaire.2">Décomposition des mécaniques et de la boucle de gameplay</li>
+              <li data-i18n="analysis.page.sommaire.3">Direction artistique et lisibilité</li>
+              <li data-i18n="analysis.page.sommaire.4">Intentions de design et courbe de difficulté</li>
+              <li data-i18n="analysis.page.sommaire.5">Modèle économique et rétention du joueur</li>
+              <li data-i18n="analysis.page.sommaire.6">Conclusion et enseignements tirés pour ma pratique</li>
+            </ul>
+
+            <div class="project-card__block">
+              <h4 class="project-card__block-heading" data-i18n="analysis.page.slidesHeading">Diaporama d’analyse</h4>
+              <div class="media-slider" data-slider style="--slider-ratio: 16 / 9;">
+                <button class="media-slider__button" type="button" data-slider-prev data-i18n-attr="aria-label:slider.previous" disabled>
+                  <svg aria-hidden="true"><use href="../icons/sprite.svg#icon-chevron-left"></use></svg>
+                </button>
+                <div class="media-slider__viewport" data-slider-viewport tabindex="0" role="region" data-i18n-attr="aria-label:slider.region">
+                  <div class="media-slider__track">
+                    <figure class="media-slider__slide"><img src="../images/projects/analyse-deconstruction-jetpack-joyride/slide-02.jpg" alt="Slide 2 du devoir Analyse et déconstruction, Jetpack Joyride" data-placeholder onerror="this.closest('.media-slider__slide').remove()" /></figure>
+                    <figure class="media-slider__slide"><img src="../images/projects/analyse-deconstruction-jetpack-joyride/slide-03.jpg" alt="Slide 3 du devoir Analyse et déconstruction, Jetpack Joyride" data-placeholder onerror="this.closest('.media-slider__slide').remove()" /></figure>
+                    <figure class="media-slider__slide"><img src="../images/projects/analyse-deconstruction-jetpack-joyride/slide-04.webp" alt="Slide 4 du devoir Analyse et déconstruction, Jetpack Joyride" data-placeholder onerror="this.closest('.media-slider__slide').remove()" /></figure>
+                    <figure class="media-slider__slide"><img src="../images/projects/analyse-deconstruction-jetpack-joyride/slide-05.jpg" alt="Slide 5 du devoir Analyse et déconstruction, Jetpack Joyride" data-placeholder onerror="this.closest('.media-slider__slide').remove()" /></figure>
+                    <figure class="media-slider__slide"><img src="../images/projects/analyse-deconstruction-jetpack-joyride/slide-06.jpg" alt="Slide 6 du devoir Analyse et déconstruction, Jetpack Joyride" data-placeholder onerror="this.closest('.media-slider__slide').remove()" /></figure>
+                    <figure class="media-slider__slide"><img src="../images/projects/analyse-deconstruction-jetpack-joyride/slide-07.jpg" alt="Slide 7 du devoir Analyse et déconstruction, Jetpack Joyride" data-placeholder onerror="this.closest('.media-slider__slide').remove()" /></figure>
+                    <figure class="media-slider__slide"><img src="../images/projects/analyse-deconstruction-jetpack-joyride/slide-08.jpg" alt="Slide 8 du devoir Analyse et déconstruction, Jetpack Joyride" data-placeholder onerror="this.closest('.media-slider__slide').remove()" /></figure>
+                    <figure class="media-slider__slide"><img src="../images/projects/analyse-deconstruction-jetpack-joyride/slide-09.jpg" alt="Slide 9 du devoir Analyse et déconstruction, Jetpack Joyride" data-placeholder onerror="this.closest('.media-slider__slide').remove()" /></figure>
+                    <figure class="media-slider__slide"><img src="../images/projects/analyse-deconstruction-jetpack-joyride/slide-10.jpg" alt="Slide 10 du devoir Analyse et déconstruction, Jetpack Joyride" data-placeholder onerror="this.closest('.media-slider__slide').remove()" /></figure>
+                    <figure class="media-slider__slide"><img src="../images/projects/analyse-deconstruction-jetpack-joyride/slide-11.jpg" alt="Slide 11 du devoir Analyse et déconstruction, Jetpack Joyride" data-placeholder onerror="this.closest('.media-slider__slide').remove()" /></figure>
+                    <figure class="media-slider__slide"><img src="../images/projects/analyse-deconstruction-jetpack-joyride/slide-12.jpg" alt="Slide 12 du devoir Analyse et déconstruction, Jetpack Joyride" data-placeholder onerror="this.closest('.media-slider__slide').remove()" /></figure>
+                    <figure class="media-slider__slide"><img src="../images/projects/analyse-deconstruction-jetpack-joyride/slide-13.jpg" alt="Slide 13 du devoir Analyse et déconstruction, Jetpack Joyride" data-placeholder onerror="this.closest('.media-slider__slide').remove()" /></figure>
+                    <figure class="media-slider__slide"><img src="../images/projects/analyse-deconstruction-jetpack-joyride/slide-14.jpg" alt="Slide 14 du devoir Analyse et déconstruction, Jetpack Joyride" data-placeholder onerror="this.closest('.media-slider__slide').remove()" /></figure>
+                    <figure class="media-slider__slide"><img src="../images/projects/analyse-deconstruction-jetpack-joyride/slide-15.jpg" alt="Slide 15 du devoir Analyse et déconstruction, Jetpack Joyride" data-placeholder onerror="this.closest('.media-slider__slide').remove()" /></figure>
+                    <figure class="media-slider__slide"><img src="../images/projects/analyse-deconstruction-jetpack-joyride/slide-16.jpg" alt="Slide 16 du devoir Analyse et déconstruction, Jetpack Joyride" data-placeholder onerror="this.closest('.media-slider__slide').remove()" /></figure>
+                    <figure class="media-slider__slide"><img src="../images/projects/analyse-deconstruction-jetpack-joyride/slide-17.jpg" alt="Slide 17 du devoir Analyse et déconstruction, Jetpack Joyride" data-placeholder onerror="this.closest('.media-slider__slide').remove()" /></figure>
+                    <figure class="media-slider__slide"><img src="../images/projects/analyse-deconstruction-jetpack-joyride/slide-18.jpg" alt="Slide 18 du devoir Analyse et déconstruction, Jetpack Joyride" data-placeholder onerror="this.closest('.media-slider__slide').remove()" /></figure>
+                    <figure class="media-slider__slide"><img src="../images/projects/analyse-deconstruction-jetpack-joyride/slide-19.jpg" alt="Slide 19 du devoir Analyse et déconstruction, Jetpack Joyride" data-placeholder onerror="this.closest('.media-slider__slide').remove()" /></figure>
+                    <figure class="media-slider__slide"><img src="../images/projects/analyse-deconstruction-jetpack-joyride/slide-20.jpg" alt="Slide 20 du devoir Analyse et déconstruction, Jetpack Joyride" data-placeholder onerror="this.closest('.media-slider__slide').remove()" /></figure>
+                    <figure class="media-slider__slide"><img src="../images/projects/analyse-deconstruction-jetpack-joyride/slide-21.jpg" alt="Slide 21 du devoir Analyse et déconstruction, Jetpack Joyride" data-placeholder onerror="this.closest('.media-slider__slide').remove()" /></figure>
+                    <figure class="media-slider__slide"><img src="../images/projects/analyse-deconstruction-jetpack-joyride/slide-22.jpg" alt="Slide 22 du devoir Analyse et déconstruction, Jetpack Joyride" data-placeholder onerror="this.closest('.media-slider__slide').remove()" /></figure>
+                    <figure class="media-slider__slide"><img src="../images/projects/analyse-deconstruction-jetpack-joyride/slide-23.jpg" alt="Slide 23 du devoir Analyse et déconstruction, Jetpack Joyride" data-placeholder onerror="this.closest('.media-slider__slide').remove()" /></figure>
+                    <figure class="media-slider__slide"><img src="../images/projects/analyse-deconstruction-jetpack-joyride/slide-24.jpg" alt="Slide 24 du devoir Analyse et déconstruction, Jetpack Joyride" data-placeholder onerror="this.closest('.media-slider__slide').remove()" /></figure>
+                    <figure class="media-slider__slide"><img src="../images/projects/analyse-deconstruction-jetpack-joyride/slide-25.jpg" alt="Slide 25 du devoir Analyse et déconstruction, Jetpack Joyride" data-placeholder onerror="this.closest('.media-slider__slide').remove()" /></figure>
+                    <figure class="media-slider__slide"><img src="../images/projects/analyse-deconstruction-jetpack-joyride/slide-26.jpg" alt="Slide 26 du devoir Analyse et déconstruction, Jetpack Joyride" data-placeholder onerror="this.closest('.media-slider__slide').remove()" /></figure>
+                    <figure class="media-slider__slide"><img src="../images/projects/analyse-deconstruction-jetpack-joyride/slide-27.jpg" alt="Slide 27 du devoir Analyse et déconstruction, Jetpack Joyride" data-placeholder onerror="this.closest('.media-slider__slide').remove()" /></figure>
+                    <figure class="media-slider__slide"><img src="../images/projects/analyse-deconstruction-jetpack-joyride/slide-28.jpg" alt="Slide 28 du devoir Analyse et déconstruction, Jetpack Joyride" data-placeholder onerror="this.closest('.media-slider__slide').remove()" /></figure>
+                    <figure class="media-slider__slide"><img src="../images/projects/analyse-deconstruction-jetpack-joyride/slide-29.jpg" alt="Slide 29 du devoir Analyse et déconstruction, Jetpack Joyride" data-placeholder onerror="this.closest('.media-slider__slide').remove()" /></figure>
+                  </div>
+                </div>
+                <button class="media-slider__button" type="button" data-slider-next data-i18n-attr="aria-label:slider.next">
+                  <svg aria-hidden="true"><use href="../icons/sprite.svg#icon-chevron-right"></use></svg>
+                </button>
+              </div>
+              <p class="media-slider__status" data-slider-status role="status" aria-live="polite">1 / 29</p>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer container">
+    <div class="site-footer__inner">
+      <p>&copy; 2026 Clara Cahours de Virgile - <span data-i18n="footer.rights">Tous droits réservés</span></p>
+      <div class="site-footer__links">
+        <a href="../mentions-legales.html" data-i18n="footer.legal">Mentions légales</a>
+        <a href="../politique-de-confidentialite.html" data-i18n="footer.privacy">Politique de confidentialité</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../scripts/theme.js"></script>
+  <script src="../scripts/i18n.js"></script>
+  <script src="../scripts/navbar.js"></script>
+  <script src="../scripts/slider.js"></script>
+  <script src="../scripts/lightbox.js"></script>
+</body>
+</html>

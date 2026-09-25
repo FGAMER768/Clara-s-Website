@@ -114,7 +114,18 @@
     "scenario.page.contentHeading": "Contenu du document",
     "scenario.page.content.1": "Contexte et description des personnages (Charlie et son père Henry)",
     "scenario.page.content.2": "Séquence complète découpée en plans, avec dialogues",
-    "scenario.page.link": "Lire le document complet"
+    "scenario.page.link": "Lire le document complet",
+    "analysis.page.title": "Analyse et déconstruction : Jetpack Joyride",
+    "analysis.page.subtitle": "Analyse en profondeur d’un jeu mobile",
+    "analysis.page.intro": "Pour ce devoir de deuxième année, j’ai choisi de décortiquer Jetpack Joyride, jeu mobile développé par Halfbrick Studios. L’objectif était d’en analyser en profondeur les mécaniques, la boucle de gameplay, la direction artistique et les intentions de design, afin de comprendre ce qui rend ce titre aussi addictif et efficace.",
+    "analysis.page.sommaireHeading": "Contenu du document",
+    "analysis.page.sommaire.1": "Présentation du jeu et de son contexte de sortie",
+    "analysis.page.sommaire.2": "Décomposition des mécaniques et de la boucle de gameplay",
+    "analysis.page.sommaire.3": "Direction artistique et lisibilité",
+    "analysis.page.sommaire.4": "Intentions de design et courbe de difficulté",
+    "analysis.page.sommaire.5": "Modèle économique et rétention du joueur",
+    "analysis.page.sommaire.6": "Conclusion et enseignements tirés pour ma pratique",
+    "analysis.page.slidesHeading": "Diaporama d’analyse"
   },
   "en": {
     "meta.title": "Clara Cahours de Virgile - Portfolio",
@@ -231,6 +242,17 @@
     "scenario.page.contentHeading": "Document contents",
     "scenario.page.content.1": "Context and character descriptions (Charlie and her father Henry)",
     "scenario.page.content.2": "Full sequence broken down into shots, with dialogue",
-    "scenario.page.link": "Read the full document"
+    "scenario.page.link": "Read the full document",
+    "analysis.page.title": "Analysis and Deconstruction: Jetpack Joyride",
+    "analysis.page.subtitle": "In-depth analysis of a mobile game",
+    "analysis.page.intro": "For this second-year assignment, I chose to take apart Jetpack Joyride, a mobile game developed by Halfbrick Studios. The goal was to analyse in depth its mechanics, gameplay loop, art direction and design intent, in order to understand what makes this title so addictive and effective.",
+    "analysis.page.sommaireHeading": "Document contents",
+    "analysis.page.sommaire.1": "Presentation of the game and its release context",
+    "analysis.page.sommaire.2": "Breakdown of the mechanics and gameplay loop",
+    "analysis.page.sommaire.3": "Art direction and readability",
+    "analysis.page.sommaire.4": "Design intent and difficulty curve",
+    "analysis.page.sommaire.5": "Economic model and player retention",
+    "analysis.page.sommaire.6": "Conclusion and takeaways for my practice",
+    "analysis.page.slidesHeading": "Analysis slideshow"
   }
 }
