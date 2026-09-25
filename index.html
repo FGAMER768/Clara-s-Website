@@ -29,7 +29,11 @@
       <span class="navbar__brand">Clara</span>
 
       <button class="navbar__icon-btn navbar__menu-toggle" data-menu-toggle aria-expanded="false" aria-controls="nav-links" aria-label="Ouvrir le menu">
-        <svg aria-hidden="true"><use href="icons/sprite.svg#icon-menu"></use></svg>
+        <span class="navbar__burger" aria-hidden="true">
+          <span class="navbar__burger-bar"></span>
+          <span class="navbar__burger-bar"></span>
+          <span class="navbar__burger-bar"></span>
+        </span>
       </button>
 
       <ul class="navbar__links" id="nav-links" data-nav-links data-open="false">
@@ -58,8 +62,17 @@
 
     <!-- HERO -->
     <section class="hero">
-      <div class="hero__portrait">
-        <img src="images/profile/me.jpeg" alt="Portrait de Clara Cahours de Virgile" data-placeholder />
+      <div class="hero__portrait-wrap">
+        <div class="hero__ring" aria-hidden="true">
+          <span class="hero__ring__halo"></span>
+          <span class="hero__ring__layer hero__ring__layer--flow"></span>
+          <span class="hero__ring__layer hero__ring__layer--flow-alt"></span>
+          <span class="hero__ring__layer hero__ring__layer--shimmer"></span>
+          <span class="hero__ring__grain"></span>
+        </div>
+        <div class="hero__portrait">
+          <img src="images/profile/me.jpeg" alt="Portrait de Clara Cahours de Virgile" data-placeholder />
+        </div>
       </div>
       <h1 class="hero__name">
         <span class="hero__name-first" data-i18n="hero.first">Clara</span>

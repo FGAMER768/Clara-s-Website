@@ -80,35 +80,148 @@
   height: 1.1rem;
 }
 
-.navbar__icon-btn .icon-sun { display: none; }
-:root[data-theme="dark"] .navbar__icon-btn .icon-moon { display: none; }
-:root[data-theme="dark"] .navbar__icon-btn .icon-sun { display: block; }
+/* Transition lune ↔ soleil : les deux icônes sont superposées au même
+   endroit et on anime opacité + rotation + échelle en fondu croisé,
+   plutôt qu'un display:none/block instantané. */
+.navbar__icon-btn:has(.icon-moon) {
+  position: relative;
+}
+
+.navbar__icon-btn .icon-moon,
+.navbar__icon-btn .icon-sun {
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(0deg) scale(1);
+  opacity: 1;
+  transition: transform var(--duration-base) var(--ease-standard),
+    opacity var(--duration-base) var(--ease-standard);
+}
+
+.navbar__icon-btn .icon-sun {
+  opacity: 0;
+  transform: translate(-50%, -50%) rotate(-90deg) scale(0.5);
+}
+
+:root[data-theme="dark"] .navbar__icon-btn .icon-moon {
+  opacity: 0;
+  transform: translate(-50%, -50%) rotate(90deg) scale(0.5);
+}
+
+:root[data-theme="dark"] .navbar__icon-btn .icon-sun {
+  opacity: 1;
+  transform: translate(-50%, -50%) rotate(0deg) scale(1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .navbar__icon-btn .icon-moon,
+  .navbar__icon-btn .icon-sun {
+    transition: none;
+  }
+}
 
 .navbar__lang {
+  position: relative;
   display: inline-flex;
   border: 1px solid var(--color-border);
   border-radius: var(--radius-pill);
   overflow: hidden;
 }
 
+/* Fond qui glisse derrière le libellé actif (FR/EN) plutôt que de
+   changer instantanément la couleur de fond : les deux boutons ont la
+   même largeur, donc le fond se déplace de 0% à 100% de sa propre
+   largeur (50% du conteneur) selon la langue sélectionnée. */
+.navbar__lang::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  width: 50%;
+  border-radius: var(--radius-pill);
+  background-color: var(--color-accent);
+  transform: translateX(0%);
+  transition: transform var(--duration-base) var(--ease-standard);
+  z-index: 0;
+}
+
+.navbar__lang:has([data-lang-btn="en"][aria-pressed="true"])::before {
+  transform: translateX(100%);
+}
+
 .navbar__lang-btn {
+  position: relative;
+  z-index: 1;
+  flex: 1 1 50%;
+  text-align: center;
   border: none;
   background: transparent;
   color: var(--color-ink-muted);
   font-size: var(--step-xs);
   font-weight: 700;
   padding: var(--space-2) var(--space-3);
-  transition: background-color var(--duration-fast) var(--ease-standard),
-    color var(--duration-fast) var(--ease-standard);
+  transition: color var(--duration-fast) var(--ease-standard);
 }
 
 .navbar__lang-btn[aria-pressed="true"] {
-  background-color: var(--color-accent);
   color: #FFFFFF;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .navbar__lang::before {
+    transition: none;
+  }
 }
 
 .navbar__menu-toggle {
   display: none;
+}
+
+/* Icône hamburger → croix : trois barres HTML (plus faciles à animer
+   individuellement qu'un <use> SVG), qui pivotent et se fondent pour
+   former un X quand le menu est ouvert (aria-expanded="true"). */
+.navbar__burger {
+  position: relative;
+  display: inline-block;
+  width: 1.1rem;
+  height: 0.8rem;
+}
+
+.navbar__burger-bar {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  border-radius: 2px;
+  background-color: currentColor;
+  transition: transform var(--duration-base) var(--ease-standard),
+    opacity var(--duration-base) var(--ease-standard),
+    top var(--duration-base) var(--ease-standard);
+}
+
+.navbar__burger-bar:nth-child(1) { top: 0; }
+.navbar__burger-bar:nth-child(2) { top: 50%; transform: translateY(-50%); }
+.navbar__burger-bar:nth-child(3) { top: 100%; transform: translateY(-100%); }
+
+.navbar__menu-toggle[aria-expanded="true"] .navbar__burger-bar:nth-child(1) {
+  top: 50%;
+  transform: translateY(-50%) rotate(45deg);
+}
+
+.navbar__menu-toggle[aria-expanded="true"] .navbar__burger-bar:nth-child(2) {
+  opacity: 0;
+  transform: translateY(-50%) scaleX(0);
+}
+
+.navbar__menu-toggle[aria-expanded="true"] .navbar__burger-bar:nth-child(3) {
+  top: 50%;
+  transform: translateY(-50%) rotate(-45deg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .navbar__burger-bar {
+    transition: none;
+  }
 }
 
 @media (max-width: 46rem) {
@@ -118,12 +231,22 @@
     border-radius: var(--radius-lg);
   }
 
+  .navbar__brand {
+    flex: 1 1 auto;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
   .navbar__links {
     position: fixed;
     top: 4.5rem;
     left: 50%;
     transform: translateX(-50%);
     width: min(94%, 30rem);
+    max-width: calc(100vw - 2 * var(--space-4));
+    max-height: calc(100dvh - 5.5rem);
+    overflow-y: auto;
     flex-direction: column;
     align-items: stretch;
     gap: var(--space-1);
@@ -146,7 +269,48 @@
     text-align: center;
   }
 
+  /* Sur mobile, .navbar__links sort du flux (position: fixed), donc
+     les seuls éléments restants dans la barre sont brand, menu-toggle
+     et controls : on les regroupe explicitement à droite plutôt que de
+     laisser le hamburger flotter seul entre le nom et les contrôles. */
+  .navbar__controls {
+    order: 1;
+    padding-left: var(--space-1);
+  }
+
   .navbar__menu-toggle {
     display: inline-flex;
+    order: 2;
+    flex-shrink: 0;
+  }
+
+  .navbar__lang-btn {
+    padding-inline: var(--space-2);
+  }
+}
+
+@media (max-width: 26rem) {
+  .navbar {
+    gap: var(--space-2);
+    padding: var(--space-2);
+  }
+
+  .navbar__brand {
+    font-size: var(--step-xs);
+    padding-inline: var(--space-1);
+  }
+
+  .navbar__controls {
+    gap: var(--space-1);
+    padding-left: var(--space-1);
+  }
+
+  .navbar__icon-btn {
+    width: 2rem;
+    height: 2rem;
+  }
+
+  .navbar__lang-btn {
+    padding: var(--space-1) var(--space-2);
   }
 }

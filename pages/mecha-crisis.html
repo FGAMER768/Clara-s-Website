@@ -16,6 +16,7 @@
   <link rel="stylesheet" href="../styles/navbar.css" />
   <link rel="stylesheet" href="../styles/hero.css" />
   <link rel="stylesheet" href="../styles/cards.css" />
+  <link rel="stylesheet" href="../styles/gallery.css" />
   <link rel="stylesheet" href="../styles/project-page.css" />
   <link rel="stylesheet" href="../styles/footer.css" />
 </head>
@@ -27,7 +28,11 @@
       <a class="navbar__brand" href="../index.html" style="color: inherit; text-decoration: none;">Clara</a>
 
       <button class="navbar__icon-btn navbar__menu-toggle" data-menu-toggle aria-expanded="false" aria-controls="nav-links" aria-label="Ouvrir le menu">
-        <svg aria-hidden="true"><use href="../icons/sprite.svg#icon-menu"></use></svg>
+        <span class="navbar__burger" aria-hidden="true">
+          <span class="navbar__burger-bar"></span>
+          <span class="navbar__burger-bar"></span>
+          <span class="navbar__burger-bar"></span>
+        </span>
       </button>
 
       <ul class="navbar__links" id="nav-links" data-nav-links data-open="false">

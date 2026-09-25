@@ -115,3 +115,32 @@
     height: 2.25rem;
   }
 }
+
+@media (max-width: 26rem) {
+  /* Sur les très petits écrans, les boutons prev/next à côté du
+     viewport grignotent trop de largeur utile pour l'image : on les
+     passe en dessous du viewport, pleine largeur du slider. */
+  .media-slider {
+    grid-template-columns: 1fr;
+    row-gap: var(--space-3);
+    grid-template-areas:
+      "viewport"
+      "controls";
+  }
+
+  .media-slider__viewport {
+    grid-area: viewport;
+  }
+
+  .media-slider__button {
+    grid-area: controls;
+  }
+
+  .media-slider__button[data-slider-prev] {
+    justify-self: start;
+  }
+
+  .media-slider__button[data-slider-next] {
+    justify-self: end;
+  }
+}

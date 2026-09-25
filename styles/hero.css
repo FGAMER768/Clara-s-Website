@@ -25,22 +25,141 @@
   mask-image: radial-gradient(ellipse at center, #000 0 38%, transparent 75%);
 }
 
-.hero::after {
-  content: "";
+/* Anneau façon planète : dégradé conique continu et coloré (façon
+   aurore/nébuleuse) plutôt que des bandes en hachures, avec un léger
+   scintillement animé pour lui donner vie sans surcharger l'oeil.
+   Positionné par rapport au portrait (et non au haut du .hero) pour
+   rester centré sur le globe quelle que soit la taille d'écran. */
+.hero__ring {
   position: absolute;
-  top: 3rem;
+  top: 50%;
   left: 50%;
-  width: clamp(18rem, 48vw, 34rem);
+  width: clamp(16rem, 42vw, 30rem);
   aspect-ratio: 1;
   z-index: -1;
   pointer-events: none;
+  transform: translate(-50%, -50%) rotate(-18deg) scaleY(0.42);
+}
+
+.hero__ring__layer {
+  position: absolute;
+  inset: -6%;
   border-radius: 50%;
-  background:
-    repeating-conic-gradient(from -12deg, var(--color-accent) 0deg 1.5deg, transparent 1.5deg 12deg),
-    repeating-conic-gradient(from 8deg, color-mix(in srgb, var(--color-accent-strong) 65%, transparent) 0deg 0.8deg, transparent 0.8deg 29deg);
-  mask: radial-gradient(ellipse at center, transparent 0 65%, #000 65.7% 68%, transparent 68.7%);
-  filter: drop-shadow(0 0 0.4rem color-mix(in srgb, var(--color-accent) 68%, transparent)) drop-shadow(0 0 1.8rem color-mix(in srgb, var(--color-accent) 24%, transparent));
-  transform: translateX(-50%) rotate(-18deg) scaleY(0.42);
+  /* Transition de masque volontairement large et douce (plutôt que le
+     bord net d'avant) : la couleur se dissout progressivement des deux
+     côtés, comme de la matière vaporeuse plutôt qu'un ruban découpé. */
+  mask: radial-gradient(ellipse at center, transparent 0 52%, #000 64% 69%, transparent 82%);
+  /* Le flou est appliqué ici, sur la couleur elle-même, plutôt qu'en
+     drop-shadow sur tout le bloc : ça adoucit vraiment la matière au
+     lieu de coller un halo uniforme tout autour de sa silhouette. */
+  filter: blur(0.35rem);
+}
+
+/* Halo doux, en arrière-plan : un dégradé radial flou qui ne suit pas
+   la forme exacte de l'anneau, pour évoquer une lumière ambiante qui
+   se diffuse dans son voisinage plutôt qu'un contour éclairé. */
+.hero__ring__halo {
+  position: absolute;
+  inset: -12%;
+  border-radius: 50%;
+  background: radial-gradient(
+    ellipse at center,
+    transparent 0 40%,
+    color-mix(in srgb, var(--color-accent) 30%, transparent) 58%,
+    color-mix(in srgb, var(--color-secondary) 22%, transparent) 68%,
+    transparent 84%
+  );
+  filter: blur(1.4rem);
+  opacity: 0.9;
+}
+
+/* Couche 1 : le ruban de couleur principal, un dégradé conique fluide
+   qui tourne en continu (pas de motif répété, juste une transition de
+   teinte douce tout autour de l'anneau). */
+.hero__ring__layer--flow {
+  background: conic-gradient(
+    from 0deg,
+    var(--color-accent) 0deg,
+    var(--color-secondary) 90deg,
+    var(--color-accent-strong) 180deg,
+    color-mix(in srgb, var(--color-secondary) 80%, var(--color-accent)) 270deg,
+    var(--color-accent) 360deg
+  );
+  animation: hero-ring-spin 11s linear infinite;
+}
+
+/* Couche 2 : un second ruban, plus fin et plus saturé, en contre-rotation
+   et légèrement décalé, pour donner de la profondeur sans jamais former
+   de hachures : juste deux voiles de couleur qui glissent l'un sur
+   l'autre. */
+.hero__ring__layer--flow-alt {
+  background: conic-gradient(
+    from 140deg,
+    transparent 0deg,
+    color-mix(in srgb, var(--color-secondary) 90%, transparent) 60deg,
+    transparent 130deg,
+    color-mix(in srgb, var(--color-accent-strong) 85%, transparent) 220deg,
+    transparent 300deg,
+    color-mix(in srgb, var(--color-secondary) 70%, transparent) 340deg,
+    transparent 360deg
+  );
+  mix-blend-mode: screen;
+  opacity: 0.85;
+  animation: hero-ring-spin-reverse 16s linear infinite;
+}
+
+/* Couche 3 : scintillement, un point de lumière chaude qui pulse en
+   intensité pour évoquer une source qui brille par intermittence, sans
+   jamais tourner. Flou plus marqué : c'est une lueur, pas un trait. */
+.hero__ring__layer--shimmer {
+  background: conic-gradient(
+    from 40deg,
+    transparent 0deg,
+    color-mix(in srgb, #FFFFFF 55%, var(--color-secondary)) 18deg,
+    transparent 55deg,
+    transparent 360deg
+  );
+  mix-blend-mode: overlay;
+  filter: blur(0.6rem);
+  animation: hero-ring-shimmer 5.5s ease-in-out infinite;
+}
+
+@keyframes hero-ring-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes hero-ring-spin-reverse {
+  from { transform: rotate(360deg); }
+  to { transform: rotate(0deg); }
+}
+
+@keyframes hero-ring-shimmer {
+  0%, 100% { opacity: 0.25; }
+  50% { opacity: 0.9; }
+}
+
+/* Couche 4 : grain/poussière — un bruit fin superposé à l'anneau pour
+   casser la propreté du dégradé et évoquer de la matière granuleuse
+   (poussière d'étoiles) plutôt qu'une texture plastique lisse. Le bruit
+   est généré en SVG (feTurbulence) et suit le même masque en anneau que
+   les autres couches, pour rester confiné à sa silhouette. */
+.hero__ring__grain {
+  position: absolute;
+  inset: -6%;
+  border-radius: 50%;
+  mask: radial-gradient(ellipse at center, transparent 0 52%, #000 64% 69%, transparent 82%);
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix type='matrix' values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.9 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+  background-size: 180px 180px;
+  mix-blend-mode: soft-light;
+  opacity: 0.55;
+  animation: hero-ring-shimmer 5.5s ease-in-out infinite;
+  animation-delay: -1.5s;
+}
+
+.hero__portrait-wrap {
+  position: relative;
+  margin-bottom: var(--space-7);
 }
 
 .hero__portrait {
@@ -51,7 +170,6 @@
   overflow: hidden;
   border: 4px solid var(--color-paper-raised);
   box-shadow: 0 0 0 2px var(--color-accent), 0 0 0 9px var(--color-accent-soft), 0 0 2.5rem color-mix(in srgb, var(--color-accent) 52%, transparent), var(--shadow-raised);
-  margin-bottom: var(--space-7);
   transition: transform var(--duration-base) var(--ease-standard),
     box-shadow var(--duration-base) var(--ease-standard);
 }
