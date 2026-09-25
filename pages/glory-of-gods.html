@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Glory of Gods — Clara Cahours de Virgile</title>
+  <meta name="description" content="Fiche projet : Glory of Gods, prototype de jeu de plateau MOBA réalisé par Clara Cahours de Virgile." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="../styles/tokens.css" />
+  <link rel="stylesheet" href="../styles/base.css" />
+  <link rel="stylesheet" href="../styles/layout.css" />
+  <link rel="stylesheet" href="../styles/navbar.css" />
+  <link rel="stylesheet" href="../styles/hero.css" />
+  <link rel="stylesheet" href="../styles/cards.css" />
+  <link rel="stylesheet" href="../styles/project-page.css" />
+  <link rel="stylesheet" href="../styles/footer.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Aller au contenu principal</a>
+
+  <header>
+    <nav class="navbar" aria-label="Navigation principale">
+      <a class="navbar__brand" href="../index.html" style="color: inherit; text-decoration: none;">Clara</a>
+
+      <button class="navbar__icon-btn navbar__menu-toggle" data-menu-toggle aria-expanded="false" aria-controls="nav-links" aria-label="Ouvrir le menu">
+        <svg aria-hidden="true"><use href="../icons/sprite.svg#icon-menu"></use></svg>
+      </button>
+
+      <ul class="navbar__links" id="nav-links" data-nav-links data-open="false">
+        <li><a class="navbar__link" href="../index.html#about" data-i18n="nav.about">Qui suis-je</a></li>
+        <li><a class="navbar__link" href="../index.html#path" data-i18n="nav.path">Parcours</a></li>
+        <li><a class="navbar__link" href="../index.html#projects" data-i18n="nav.projects">Projets</a></li>
+        <li><a class="navbar__link" href="../index.html#gallery" data-i18n="nav.art">Productions visuelles</a></li>
+        <li><a class="navbar__link" href="../index.html#contact" data-i18n="nav.contact">Contact</a></li>
+      </ul>
+
+      <div class="navbar__controls">
+        <button class="navbar__icon-btn" data-theme-toggle aria-pressed="false" data-i18n-attr="aria-label:theme.toggle" aria-label="Changer le thème">
+          <svg class="icon-moon" aria-hidden="true"><use href="../icons/sprite.svg#icon-moon"></use></svg>
+          <svg class="icon-sun" aria-hidden="true"><use href="../icons/sprite.svg#icon-sun"></use></svg>
+        </button>
+
+        <div class="navbar__lang" role="group" data-i18n-attr="aria-label:lang.toggle" aria-label="Changer de langue">
+          <button class="navbar__lang-btn" data-lang-btn="fr" aria-pressed="true">FR</button>
+          <button class="navbar__lang-btn" data-lang-btn="en" aria-pressed="false">EN</button>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main-content">
+    <section class="project-page container">
+      <a class="project-page__back" href="../index.html#projects" data-i18n="project.back">
+        <svg aria-hidden="true"><use href="../icons/sprite.svg#icon-chevron-left"></use></svg>
+        Retour aux projets
+      </a>
+
+      <div class="project-grid">
+<article class="project-card" id="project-glory">
+          <div class="project-card__media">
+            <img src="../images/projects/glory-of-gods/cover.png" alt="Photo du plateau de Glory of Gods" data-placeholder />
+          </div>
+          <div class="project-card__body">
+            <div class="project-card__cover">
+              <img src="../images/projects/glory-of-gods/jaquette.jpeg" alt="Jaquette du jeu Glory of Gods" data-placeholder />
+            </div>
+            <p class="project-card__meta" data-i18n="project.glory.subtitle">Prototype d’un jeu de plateau MOBA</p>
+            <h3 class="project-card__title" data-i18n="project.glory.title">Glory of Gods</h3>
+            <p class="project-card__team" data-i18n="project.glory.team">Prototype en 1 mois et demi, équipe de 5 élèves en Game Design</p>
+            <p class="project-card__text" data-i18n="project.glory.text">
+              Glory of Gods propose aux joueurs d’incarner une divinité parmi différentes mythologies pour participer au Tournoi des Dieux. Ils doivent récupérer des points de prière afin de les poser sur la tour puis la base adverse. Chaque Dieu offre des capacités uniques pour atteindre leurs objectifs. En équipe ou seul, ceux qui détruisent en premier la base adverse gagnent la partie.
+            </p>
+
+            <p class="project-card__role-text" data-i18n="project.glory.role">
+              Réalisation de l’ensemble des graphismes (plateau, tuiles de personnages, jetons, boîte, livret de règles), conception des mécaniques et des règles, gestion de production, rédaction et mise en page du livret, organisation des playtests et analyse des retours, level design du plateau.
+            </p>
+
+            <div class="project-card__block">
+              <h4 class="project-card__block-heading" data-i18n="project.glory.rulebook">Livret de règles</h4>
+              <div class="media-slider" data-slider style="--slider-ratio: 1086 / 1536;">
+                <button class="media-slider__button" type="button" data-slider-prev data-i18n-attr="aria-label:slider.previous" disabled>
+                  <svg aria-hidden="true"><use href="../icons/sprite.svg#icon-chevron-left"></use></svg>
+                </button>
+                <div class="media-slider__viewport" data-slider-viewport tabindex="0" role="region" data-i18n-attr="aria-label:slider.region">
+                  <div class="media-slider__track">
+                    <figure class="media-slider__slide"><img src="../images/projects/glory-of-gods/jaquette.jpeg" alt="Page du livret de règles de Glory of Gods" data-placeholder onerror="this.closest('.media-slider__slide').remove()" /></figure>
+                    <figure class="media-slider__slide"><img src="../images/projects/glory-of-gods/rulebook-02.png" alt="Page du livret de règles de Glory of Gods" data-placeholder onerror="this.closest('.media-slider__slide').remove()" /></figure>
+                    <figure class="media-slider__slide"><img src="../images/projects/glory-of-gods/rulebook-03.png" alt="Page du livret de règles de Glory of Gods" data-placeholder onerror="this.closest('.media-slider__slide').remove()" /></figure>
+                    <figure class="media-slider__slide"><img src="../images/projects/glory-of-gods/rulebook-04.png" alt="Page du livret de règles de Glory of Gods" data-placeholder onerror="this.closest('.media-slider__slide').remove()" /></figure>
+                    <figure class="media-slider__slide"><img src="../images/projects/glory-of-gods/rulebook-05.png" alt="Page du livret de règles de Glory of Gods" data-placeholder onerror="this.closest('.media-slider__slide').remove()" /></figure>
+                    <figure class="media-slider__slide"><img src="../images/projects/glory-of-gods/rulebook-06.png" alt="Page du livret de règles de Glory of Gods" data-placeholder onerror="this.closest('.media-slider__slide').remove()" /></figure>
+                    <figure class="media-slider__slide"><img src="../images/projects/glory-of-gods/rulebook-07.png" alt="Page du livret de règles de Glory of Gods" data-placeholder onerror="this.closest('.media-slider__slide').remove()" /></figure>
+                    <figure class="media-slider__slide"><img src="../images/projects/glory-of-gods/rulebook-08.png" alt="Page du livret de règles de Glory of Gods" data-placeholder onerror="this.closest('.media-slider__slide').remove()" /></figure>
+                    <figure class="media-slider__slide"><img src="../images/projects/glory-of-gods/rulebook-09.png" alt="Page du livret de règles de Glory of Gods" data-placeholder onerror="this.closest('.media-slider__slide').remove()" /></figure>
+                    <figure class="media-slider__slide"><img src="../images/projects/glory-of-gods/rulebook-10.png" alt="Page du livret de règles de Glory of Gods" data-placeholder onerror="this.closest('.media-slider__slide').remove()" /></figure>
+                    <figure class="media-slider__slide"><img src="../images/projects/glory-of-gods/rulebook-11.png" alt="Page du livret de règles de Glory of Gods" data-placeholder onerror="this.closest('.media-slider__slide').remove()" /></figure>
+                    <figure class="media-slider__slide"><img src="../images/projects/glory-of-gods/rulebook-12.png" alt="Page du livret de règles de Glory of Gods" data-placeholder onerror="this.closest('.media-slider__slide').remove()" /></figure>
+                    <figure class="media-slider__slide"><img src="../images/projects/glory-of-gods/rulebook-13.png" alt="Page du livret de règles de Glory of Gods" data-placeholder onerror="this.closest('.media-slider__slide').remove()" /></figure>
+                  </div>
+                </div>
+                <button class="media-slider__button" type="button" data-slider-next data-i18n-attr="aria-label:slider.next">
+                  <svg aria-hidden="true"><use href="../icons/sprite.svg#icon-chevron-right"></use></svg>
+                </button>
+              </div>
+              <p class="media-slider__status" data-slider-status role="status" aria-live="polite">1 / 13</p>
+            </div>
+
+            <div class="project-card__block">
+              <h4 class="project-card__block-heading" data-i18n="project.glory.subtitle">Prototype d’un jeu de plateau MOBA</h4>
+              <div class="media-slider" data-slider style="--slider-ratio: 6 / 5;">
+                <button class="media-slider__button" type="button" data-slider-prev data-i18n-attr="aria-label:slider.previous" disabled>
+                  <svg aria-hidden="true"><use href="../icons/sprite.svg#icon-chevron-left"></use></svg>
+                </button>
+                <div class="media-slider__viewport" data-slider-viewport tabindex="0" role="region" data-i18n-attr="aria-label:slider.region">
+                  <div class="media-slider__track">
+                    <figure class="media-slider__slide"><img src="../images/projects/glory-of-gods/board-01.webp" alt="Plateau et jetons de Glory of Gods" data-placeholder onerror="this.closest('.media-slider__slide').remove()" /></figure>
+                    <figure class="media-slider__slide"><img src="../images/projects/glory-of-gods/board-02.webp" alt="Tuiles de personnages de Glory of Gods" data-placeholder onerror="this.closest('.media-slider__slide').remove()" /></figure>
+                    <figure class="media-slider__slide"><img src="../images/projects/glory-of-gods/board-03.webp" alt="Boîte de jeu de Glory of Gods" data-placeholder onerror="this.closest('.media-slider__slide').remove()" /></figure>
+                    <figure class="media-slider__slide"><img src="../images/projects/glory-of-gods/board-04.webp" alt="Détail des jetons de Glory of Gods" data-placeholder onerror="this.closest('.media-slider__slide').remove()" /></figure>
+                    <figure class="media-slider__slide"><img src="../images/projects/glory-of-gods/board-05.webp" alt="Détail du plateau de Glory of Gods" data-placeholder onerror="this.closest('.media-slider__slide').remove()" /></figure>
+                    <figure class="media-slider__slide"><img src="../images/projects/glory-of-gods/board-06.jpg" alt="Détail des jetons de Glory of Gods" data-placeholder onerror="this.closest('.media-slider__slide').remove()" /></figure>
+                    <figure class="media-slider__slide"><img src="../images/projects/glory-of-gods/board-07.jpg" alt="Détail des jetons de Glory of Gods" data-placeholder onerror="this.closest('.media-slider__slide').remove()" /></figure>
+                  </div>
+                </div>
+                <button class="media-slider__button" type="button" data-slider-next data-i18n-attr="aria-label:slider.next">
+                  <svg aria-hidden="true"><use href="../icons/sprite.svg#icon-chevron-right"></use></svg>
+                </button>
+              </div>
+              <p class="media-slider__status" data-slider-status role="status" aria-live="polite">1 / 7</p>
+            </div>
+
+            <div class="project-card__block">
+              <h4 class="project-card__block-heading" data-i18n="project.glory.characterCards">Cartes personnages</h4>
+              <div class="media-slider" data-slider>
+                <button class="media-slider__button" type="button" data-slider-prev data-i18n-attr="aria-label:slider.previous" disabled>
+                  <svg aria-hidden="true"><use href="../icons/sprite.svg#icon-chevron-left"></use></svg>
+                </button>
+                <div class="media-slider__viewport" data-slider-viewport tabindex="0" role="region" data-i18n-attr="aria-label:slider.region">
+                  <div class="media-slider__track">
+                    <figure class="media-slider__slide"><img src="../images/projects/glory-of-gods/character-card-01.png" alt="Carte personnage 1 de Glory of Gods" data-placeholder onerror="this.closest('.media-slider__slide').remove()" /></figure>
+                    <figure class="media-slider__slide"><img src="../images/projects/glory-of-gods/character-card-02.png" alt="Carte personnage 2 de Glory of Gods" data-placeholder onerror="this.closest('.media-slider__slide').remove()" /></figure>
+                    <figure class="media-slider__slide"><img src="../images/projects/glory-of-gods/character-card-03.webp" alt="Carte personnage 3 de Glory of Gods" data-placeholder onerror="this.closest('.media-slider__slide').remove()" /></figure>
+                    <figure class="media-slider__slide"><img src="../images/projects/glory-of-gods/character-card-04.webp" alt="Carte personnage 4 de Glory of Gods" data-placeholder onerror="this.closest('.media-slider__slide').remove()" /></figure>
+                    <figure class="media-slider__slide"><img src="../images/projects/glory-of-gods/character-card-05.webp" alt="Carte personnage 5 de Glory of Gods" data-placeholder onerror="this.closest('.media-slider__slide').remove()" /></figure>
+                    <figure class="media-slider__slide"><img src="../images/projects/glory-of-gods/character-card-06.webp" alt="Carte personnage 6 de Glory of Gods" data-placeholder onerror="this.closest('.media-slider__slide').remove()" /></figure>
+                    <figure class="media-slider__slide"><img src="../images/projects/glory-of-gods/character-card-07.webp" alt="Carte personnage 7 de Glory of Gods" data-placeholder onerror="this.closest('.media-slider__slide').remove()" /></figure>
+                    <figure class="media-slider__slide"><img src="../images/projects/glory-of-gods/character-card-08.webp" alt="Carte personnage 8 de Glory of Gods" data-placeholder onerror="this.closest('.media-slider__slide').remove()" /></figure>
+                    <figure class="media-slider__slide"><img src="../images/projects/glory-of-gods/character-card-09.webp" alt="Carte personnage 9 de Glory of Gods" data-placeholder onerror="this.closest('.media-slider__slide').remove()" /></figure>
+                    <figure class="media-slider__slide"><img src="../images/projects/glory-of-gods/character-card-10.webp" alt="Carte personnage 10 de Glory of Gods" data-placeholder onerror="this.closest('.media-slider__slide').remove()" /></figure>
+                  </div>
+                </div>
+                <button class="media-slider__button" type="button" data-slider-next data-i18n-attr="aria-label:slider.next">
+                  <svg aria-hidden="true"><use href="../icons/sprite.svg#icon-chevron-right"></use></svg>
+                </button>
+              </div>
+              <p class="media-slider__status" data-slider-status role="status" aria-live="polite">1 / 10</p>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer container">
+    <div class="site-footer__inner">
+      <p>&copy; 2026 Clara Cahours de Virgile - <span data-i18n="footer.rights">Tous droits réservés</span></p>
+      <div class="site-footer__links">
+        <a href="../mentions-legales.html" data-i18n="footer.legal">Mentions légales</a>
+        <a href="../politique-de-confidentialite.html" data-i18n="footer.privacy">Politique de confidentialité</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../scripts/theme.js"></script>
+  <script src="../scripts/i18n.js"></script>
+  <script src="../scripts/navbar.js"></script>
+  <script src="../scripts/slider.js"></script>
+</body>
+</html>

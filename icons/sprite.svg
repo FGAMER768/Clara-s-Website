@@ -30,4 +30,8 @@
     <path d="M5 12h14" />
     <path d="m12 5 7 7-7 7" />
   </symbol>
+
+  <symbol id="icon-play" viewBox="0 0 24 24" fill="currentColor">
+    <path d="M8 5.5v13l11-6.5-11-6.5z" />
+  </symbol>
 </svg>

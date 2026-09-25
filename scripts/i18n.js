@@ -90,7 +90,23 @@
     });
   }
 
-  fetch("data/i18n.json")
+  // Chemin du fichier de traductions calculé relativement à ce script
+  // (et non à la page HTML qui l'inclut) : index.html est à la racine,
+  // mais les fiches projet sont dans pages/, donc un chemin en dur
+  // ("data/i18n.json") casse silencieusement dès qu'on change de dossier.
+  function getI18nDataUrl() {
+    var scripts = document.getElementsByTagName("script");
+    for (var i = 0; i < scripts.length; i++) {
+      var src = scripts[i].getAttribute("src") || "";
+      if (/(^|\/)i18n\.js(\?.*)?$/.test(src)) {
+        return new URL("../data/i18n.json", new URL(src, document.baseURI)).href;
+      }
+    }
+    // Repli raisonnable si jamais le script a été renommé ou inline.
+    return "data/i18n.json";
+  }
+
+  fetch(getI18nDataUrl())
     .then(function (response) {
       if (!response.ok) {
         throw new Error("Impossible de charger les traductions");

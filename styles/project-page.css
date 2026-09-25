@@ -1,0 +1,33 @@
+/*
+  Page projet isolée (une jaquette de la vitrine -> une page dédiée
+  contenant sa project-card). Un simple lien de retour au-dessus de la
+  carte, cohérent avec le style des liens de carte existants.
+*/
+
+.project-page {
+  /* Même dégagement que le hero : la navbar est "position: fixed",
+     donc il faut assez de padding-top pour ne jamais passer dessous. */
+  padding-top: clamp(7rem, 14vw, 9rem);
+  padding-bottom: var(--space-8);
+}
+
+.project-page__back {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-bottom: var(--space-6);
+  font-weight: 700;
+  font-size: var(--step-sm);
+  color: var(--color-ink-muted);
+  transition: color var(--duration-fast) var(--ease-standard);
+}
+
+.project-page__back:hover,
+.project-page__back:focus-visible {
+  color: var(--color-secondary);
+}
+
+.project-page__back svg {
+  width: 1.1rem;
+  height: 1.1rem;
+}

@@ -17,6 +17,7 @@
   <link rel="stylesheet" href="styles/hero.css" />
   <link rel="stylesheet" href="styles/timeline.css" />
   <link rel="stylesheet" href="styles/cards.css" />
+  <link rel="stylesheet" href="styles/showcase.css" />
   <link rel="stylesheet" href="styles/gallery.css" />
   <link rel="stylesheet" href="styles/footer.css" />
 </head>
@@ -132,353 +133,39 @@
         Sept projets menés en formation, du prototype de jeu de plateau au jeu vidéo narratif complet.
       </p>
 
-      <div class="project-grid">
-
-        <!-- Projet : Sînnaya -->
-        <article class="project-card" id="project-sinnaya">
-          <div class="project-card__media">
-            <img src="images/projects/sinnaya/cover.jpeg" alt="Illustration clé du jeu Sînnaya" data-placeholder />
+      <!-- Vitrine des jaquettes, façon bibliothèque de jeux : chaque tuile renvoie vers la fiche projet détaillée ci-dessous -->
+      <div class="showcase">
+        <a class="showcase__tile" href="pages/sinnaya.html">
+          <img src="images/projects/sinnaya/jaquette.jpeg" alt="Jaquette du jeu Sînnaya" data-placeholder />
+          <div class="showcase__overlay">            <p class="showcase__meta" data-i18n="path.2025.title">Sînnaya</p>
+            <h3 class="showcase__title" data-i18n="project.sinnaya.title">Sînnaya</h3>
+            <p class="showcase__tag" data-i18n="project.sinnaya.subtitle">Jeu narratif et d’énigmes</p>
           </div>
-          <div class="project-card__body">
-            <div class="project-card__cover">
-              <img src="images/projects/sinnaya/jaquette.jpeg" alt="Jaquette du jeu Sînnaya" data-placeholder />
-            </div>
-            <p class="project-card__meta" data-i18n="project.sinnaya.subtitle">Jeu narratif et d’énigmes</p>
-            <h3 class="project-card__title" data-i18n="project.sinnaya.title">Sînnaya</h3>
-            <p class="project-card__team" data-i18n="project.sinnaya.team">Projet de troisième année, équipe de 9 personnes (3 game designers, 4 game artists, 2 tech artists)</p>
-            <p class="project-card__text" data-i18n="project.sinnaya.text">
-              À Babylone, en Mésopotamie, incarnez Sînnaya, disciple du Dieu de la Lune, traversant le temple d’Ishtar. Armée d’un sceptre lunaire révélant l’invisible, résolvez les énigmes laissées par la déesse disparue pour retrouver votre enfant perdu et empêcher la chute de Babylone.
-            </p>
+        </a>
 
-            <p class="project-card__role-text" data-i18n="project.sinnaya.role">
-              Blocking, level design, sound design, doublage, scénario, world building, chara développement, certains VFX, mise en place des énigmes, documentation (pipelines, sound list, Game Concept Document, GDD).
-            </p>
-
-            <a class="project-card__link" href="https://drive.google.com/drive/folders/1IzyHKjib4mx2zXdd3tbGSdvDJVAyWBSz" target="_blank" rel="noopener" data-i18n="project.sinnaya.link">
-              Accéder à la build
-            </a>
-
-            <div class="project-card__block">
-              <h4 class="project-card__block-heading" data-i18n="project.sinnaya.trailer">Trailer</h4>
-              <div class="project-card__video">
-                <iframe src="https://www.youtube-nocookie.com/embed/xGNWGuPz8O0" title="Trailer de Sînnaya" data-video-placeholder="sinnaya-trailer" loading="lazy"></iframe>
-              </div>
-            </div>
-
-            <div class="project-card__block">
-              <h4 class="project-card__block-heading" data-i18n="project.sinnaya.walkthrough">Walkthrough</h4>
-              <div class="project-card__video">
-                <iframe src="https://www.youtube-nocookie.com/embed/1hRrMT6hPKw" title="Walkthrough de Sînnaya" data-video-placeholder="sinnaya-walkthrough" loading="lazy"></iframe>
-              </div>
-            </div>
+        <a class="showcase__tile" href="pages/glory-of-gods.html">
+          <img src="images/projects/glory-of-gods/jaquette.jpeg" alt="Jaquette du jeu Glory of Gods" data-placeholder />
+          <div class="showcase__overlay">            <p class="showcase__meta" data-i18n="path.2024b.title">Glory of Gods</p>
+            <h3 class="showcase__title" data-i18n="project.glory.title">Glory of Gods</h3>
+            <p class="showcase__tag" data-i18n="project.glory.subtitle">Prototype d’un jeu de plateau MOBA</p>
           </div>
-        </article>
+        </a>
 
-        <!-- Projet : Glory of Gods -->
-        <article class="project-card" id="project-glory">
-          <div class="project-card__media">
-            <img src="images/projects/glory-of-gods/cover.png" alt="Photo du plateau de Glory of Gods" data-placeholder />
+        <a class="showcase__tile" href="pages/mecha-crisis.html">
+          <img src="images/projects/mecha-crisis/cover.png" alt="Jaquette du jeu Mecha Crisis" data-placeholder />
+          <div class="showcase__overlay">            <p class="showcase__meta" data-i18n="path.2024a.title">Mecha Crisis</p>
+            <h3 class="showcase__title" data-i18n="project.mecha.title">Mecha Crisis</h3>
+            <p class="showcase__tag" data-i18n="project.mecha.subtitle">Rail shooter en vue première personne</p>
           </div>
-          <div class="project-card__body">
-            <div class="project-card__cover">
-              <img src="images/projects/glory-of-gods/jaquette.jpeg" alt="Jaquette du jeu Glory of Gods" data-placeholder />
-            </div>
-            <p class="project-card__meta" data-i18n="project.glory.subtitle">Prototype d’un jeu de plateau MOBA</p>
-            <h3 class="project-card__title" data-i18n="project.glory.title">Glory of Gods</h3>
-            <p class="project-card__team" data-i18n="project.glory.team">Prototype en 1 mois et demi, équipe de 5 élèves en Game Design</p>
-            <p class="project-card__text" data-i18n="project.glory.text">
-              Glory of Gods propose aux joueurs d’incarner une divinité parmi différentes mythologies pour participer au Tournoi des Dieux. Ils doivent récupérer des points de prière afin de les poser sur la tour puis la base adverse. Chaque Dieu offre des capacités uniques pour atteindre leurs objectifs. En équipe ou seul, ceux qui détruisent en premier la base adverse gagnent la partie.
-            </p>
+        </a>
 
-            <p class="project-card__role-text" data-i18n="project.glory.role">
-              Réalisation de l’ensemble des graphismes (plateau, tuiles de personnages, jetons, boîte, livret de règles), conception des mécaniques et des règles, gestion de production, rédaction et mise en page du livret, organisation des playtests et analyse des retours, level design du plateau.
-            </p>
-
-            <div class="project-card__block">
-              <h4 class="project-card__block-heading" data-i18n="project.glory.rulebook">Livret de règles</h4>
-              <div class="media-slider" data-slider style="--slider-ratio: 1086 / 1536;">
-                <button class="media-slider__button" type="button" data-slider-prev data-i18n-attr="aria-label:slider.previous" disabled>
-                  <svg aria-hidden="true"><use href="icons/sprite.svg#icon-chevron-left"></use></svg>
-                </button>
-                <div class="media-slider__viewport" data-slider-viewport tabindex="0" role="region" data-i18n-attr="aria-label:slider.region">
-                  <div class="media-slider__track">
-                    <figure class="media-slider__slide"><img src="images/projects/glory-of-gods/jaquette.jpeg" alt="Page du livret de règles de Glory of Gods" data-placeholder onerror="this.closest('.media-slider__slide').remove()" /></figure>
-                    <figure class="media-slider__slide"><img src="images/projects/glory-of-gods/rulebook-02.png" alt="Page du livret de règles de Glory of Gods" data-placeholder onerror="this.closest('.media-slider__slide').remove()" /></figure>
-                    <figure class="media-slider__slide"><img src="images/projects/glory-of-gods/rulebook-03.png" alt="Page du livret de règles de Glory of Gods" data-placeholder onerror="this.closest('.media-slider__slide').remove()" /></figure>
-                    <figure class="media-slider__slide"><img src="images/projects/glory-of-gods/rulebook-04.png" alt="Page du livret de règles de Glory of Gods" data-placeholder onerror="this.closest('.media-slider__slide').remove()" /></figure>
-                    <figure class="media-slider__slide"><img src="images/projects/glory-of-gods/rulebook-05.png" alt="Page du livret de règles de Glory of Gods" data-placeholder onerror="this.closest('.media-slider__slide').remove()" /></figure>
-                    <figure class="media-slider__slide"><img src="images/projects/glory-of-gods/rulebook-06.png" alt="Page du livret de règles de Glory of Gods" data-placeholder onerror="this.closest('.media-slider__slide').remove()" /></figure>
-                    <figure class="media-slider__slide"><img src="images/projects/glory-of-gods/rulebook-07.png" alt="Page du livret de règles de Glory of Gods" data-placeholder onerror="this.closest('.media-slider__slide').remove()" /></figure>
-                    <figure class="media-slider__slide"><img src="images/projects/glory-of-gods/rulebook-08.png" alt="Page du livret de règles de Glory of Gods" data-placeholder onerror="this.closest('.media-slider__slide').remove()" /></figure>
-                    <figure class="media-slider__slide"><img src="images/projects/glory-of-gods/rulebook-09.png" alt="Page du livret de règles de Glory of Gods" data-placeholder onerror="this.closest('.media-slider__slide').remove()" /></figure>
-                    <figure class="media-slider__slide"><img src="images/projects/glory-of-gods/rulebook-10.png" alt="Page du livret de règles de Glory of Gods" data-placeholder onerror="this.closest('.media-slider__slide').remove()" /></figure>
-                    <figure class="media-slider__slide"><img src="images/projects/glory-of-gods/rulebook-11.png" alt="Page du livret de règles de Glory of Gods" data-placeholder onerror="this.closest('.media-slider__slide').remove()" /></figure>
-                    <figure class="media-slider__slide"><img src="images/projects/glory-of-gods/rulebook-12.png" alt="Page du livret de règles de Glory of Gods" data-placeholder onerror="this.closest('.media-slider__slide').remove()" /></figure>
-                    <figure class="media-slider__slide"><img src="images/projects/glory-of-gods/rulebook-13.png" alt="Page du livret de règles de Glory of Gods" data-placeholder onerror="this.closest('.media-slider__slide').remove()" /></figure>
-                  </div>
-                </div>
-                <button class="media-slider__button" type="button" data-slider-next data-i18n-attr="aria-label:slider.next">
-                  <svg aria-hidden="true"><use href="icons/sprite.svg#icon-chevron-right"></use></svg>
-                </button>
-              </div>
-              <p class="media-slider__status" data-slider-status role="status" aria-live="polite">1 / 13</p>
-            </div>
-
-            <div class="project-card__block">
-              <h4 class="project-card__block-heading" data-i18n="project.glory.subtitle">Prototype d’un jeu de plateau MOBA</h4>
-              <div class="media-slider" data-slider style="--slider-ratio: 6 / 5;">
-                <button class="media-slider__button" type="button" data-slider-prev data-i18n-attr="aria-label:slider.previous" disabled>
-                  <svg aria-hidden="true"><use href="icons/sprite.svg#icon-chevron-left"></use></svg>
-                </button>
-                <div class="media-slider__viewport" data-slider-viewport tabindex="0" role="region" data-i18n-attr="aria-label:slider.region">
-                  <div class="media-slider__track">
-                    <figure class="media-slider__slide"><img src="images/projects/glory-of-gods/board-01.webp" alt="Plateau et jetons de Glory of Gods" data-placeholder onerror="this.closest('.media-slider__slide').remove()" /></figure>
-                    <figure class="media-slider__slide"><img src="images/projects/glory-of-gods/board-02.webp" alt="Tuiles de personnages de Glory of Gods" data-placeholder onerror="this.closest('.media-slider__slide').remove()" /></figure>
-                    <figure class="media-slider__slide"><img src="images/projects/glory-of-gods/board-03.webp" alt="Boîte de jeu de Glory of Gods" data-placeholder onerror="this.closest('.media-slider__slide').remove()" /></figure>
-                    <figure class="media-slider__slide"><img src="images/projects/glory-of-gods/board-04.webp" alt="Détail des jetons de Glory of Gods" data-placeholder onerror="this.closest('.media-slider__slide').remove()" /></figure>
-                    <figure class="media-slider__slide"><img src="images/projects/glory-of-gods/board-05.webp" alt="Détail du plateau de Glory of Gods" data-placeholder onerror="this.closest('.media-slider__slide').remove()" /></figure>
-                    <figure class="media-slider__slide"><img src="images/projects/glory-of-gods/board-06.jpg" alt="Détail des jetons de Glory of Gods" data-placeholder onerror="this.closest('.media-slider__slide').remove()" /></figure>
-                    <figure class="media-slider__slide"><img src="images/projects/glory-of-gods/board-07.jpg" alt="Détail des jetons de Glory of Gods" data-placeholder onerror="this.closest('.media-slider__slide').remove()" /></figure>
-                  </div>
-                </div>
-                <button class="media-slider__button" type="button" data-slider-next data-i18n-attr="aria-label:slider.next">
-                  <svg aria-hidden="true"><use href="icons/sprite.svg#icon-chevron-right"></use></svg>
-                </button>
-              </div>
-              <p class="media-slider__status" data-slider-status role="status" aria-live="polite">1 / 7</p>
-            </div>
-
-            <div class="project-card__block">
-              <h4 class="project-card__block-heading" data-i18n="project.glory.characterCards">Cartes personnages</h4>
-              <div class="media-slider" data-slider>
-                <button class="media-slider__button" type="button" data-slider-prev data-i18n-attr="aria-label:slider.previous" disabled>
-                  <svg aria-hidden="true"><use href="icons/sprite.svg#icon-chevron-left"></use></svg>
-                </button>
-                <div class="media-slider__viewport" data-slider-viewport tabindex="0" role="region" data-i18n-attr="aria-label:slider.region">
-                  <div class="media-slider__track">
-                    <figure class="media-slider__slide"><img src="images/projects/glory-of-gods/character-card-01.png" alt="Carte personnage 1 de Glory of Gods" data-placeholder onerror="this.closest('.media-slider__slide').remove()" /></figure>
-                    <figure class="media-slider__slide"><img src="images/projects/glory-of-gods/character-card-02.png" alt="Carte personnage 2 de Glory of Gods" data-placeholder onerror="this.closest('.media-slider__slide').remove()" /></figure>
-                    <figure class="media-slider__slide"><img src="images/projects/glory-of-gods/character-card-03.webp" alt="Carte personnage 3 de Glory of Gods" data-placeholder onerror="this.closest('.media-slider__slide').remove()" /></figure>
-                    <figure class="media-slider__slide"><img src="images/projects/glory-of-gods/character-card-04.webp" alt="Carte personnage 4 de Glory of Gods" data-placeholder onerror="this.closest('.media-slider__slide').remove()" /></figure>
-                    <figure class="media-slider__slide"><img src="images/projects/glory-of-gods/character-card-05.webp" alt="Carte personnage 5 de Glory of Gods" data-placeholder onerror="this.closest('.media-slider__slide').remove()" /></figure>
-                    <figure class="media-slider__slide"><img src="images/projects/glory-of-gods/character-card-06.webp" alt="Carte personnage 6 de Glory of Gods" data-placeholder onerror="this.closest('.media-slider__slide').remove()" /></figure>
-                    <figure class="media-slider__slide"><img src="images/projects/glory-of-gods/character-card-07.webp" alt="Carte personnage 7 de Glory of Gods" data-placeholder onerror="this.closest('.media-slider__slide').remove()" /></figure>
-                    <figure class="media-slider__slide"><img src="images/projects/glory-of-gods/character-card-08.webp" alt="Carte personnage 8 de Glory of Gods" data-placeholder onerror="this.closest('.media-slider__slide').remove()" /></figure>
-                    <figure class="media-slider__slide"><img src="images/projects/glory-of-gods/character-card-09.webp" alt="Carte personnage 9 de Glory of Gods" data-placeholder onerror="this.closest('.media-slider__slide').remove()" /></figure>
-                    <figure class="media-slider__slide"><img src="images/projects/glory-of-gods/character-card-10.webp" alt="Carte personnage 10 de Glory of Gods" data-placeholder onerror="this.closest('.media-slider__slide').remove()" /></figure>
-                  </div>
-                </div>
-                <button class="media-slider__button" type="button" data-slider-next data-i18n-attr="aria-label:slider.next">
-                  <svg aria-hidden="true"><use href="icons/sprite.svg#icon-chevron-right"></use></svg>
-                </button>
-              </div>
-              <p class="media-slider__status" data-slider-status role="status" aria-live="polite">1 / 10</p>
-            </div>
+        <a class="showcase__tile" href="pages/beez-adventures.html">
+          <img src="images/projects/beez-adventures/cover.jpg" alt="Jaquette du jeu Beez Adventures" data-placeholder />
+          <div class="showcase__overlay">            <p class="showcase__meta" data-i18n="path.2023.title">Beez Adventures</p>
+            <h3 class="showcase__title" data-i18n="project.beez.title">Beez Adventures</h3>
+            <p class="showcase__tag" data-i18n="project.beez.subtitle">Niveau de plateforme</p>
           </div>
-        </article>
-
-        <!-- Projet : Mecha Crisis -->
-        <article class="project-card" id="project-mecha">
-          <div class="project-card__media">
-            <img src="images/projects/mecha-crisis/cover.png" alt="Capture du jeu Mecha Crisis" data-placeholder />
-          </div>
-          <div class="project-card__body">
-            <p class="project-card__meta" data-i18n="project.mecha.subtitle">Rail shooter en vue première personne</p>
-            <h3 class="project-card__title" data-i18n="project.mecha.title">Mecha Crisis</h3>
-            <p class="project-card__team" data-i18n="project.mecha.team">Projet interfilière de deuxième année, équipe de 11 (4 Game Designers, 4 Game Artists, 3 Technical Artists)</p>
-            <p class="project-card__text" data-i18n="project.mecha.text">
-              Dernier membre d’une unité spéciale dont la mission a échoué, vous devez atteindre le point d’extraction qui vous permettra de vous échapper d’une ville contrôlée par des robots hostiles. Éliminez les ennemis qui se mettent en travers de votre chemin et servez-vous de votre aimant afin d’atteindre votre objectif.
-            </p>
-
-            <p class="project-card__role-text" data-i18n="project.mecha.role">
-              Développement sur Unreal Engine, pipeline, Game Concept Document, mise en place des mécaniques principales, balancing, doublage, world building, storyboard, scénario, chara développement, QA test.
-            </p>
-
-            <div class="project-card__block">
-              <h4 class="project-card__block-heading" data-i18n="project.mecha.walkthrough">Walkthrough</h4>
-              <div class="project-card__video">
-                <iframe src="https://www.youtube-nocookie.com/embed/CdukLN3WnX4" title="Walkthrough de Mecha Crisis" data-video-placeholder="mecha-walkthrough" loading="lazy"></iframe>
-              </div>
-            </div>
-
-            <div class="project-card__block">
-              <h4 class="project-card__block-heading" data-i18n="project.mecha.overview">Aperçu du jeu</h4>
-              <div class="media-slider" data-slider style="--slider-ratio: 16 / 10;">
-                <button class="media-slider__button" type="button" data-slider-prev data-i18n-attr="aria-label:slider.previous" disabled>
-                  <svg aria-hidden="true"><use href="icons/sprite.svg#icon-chevron-left"></use></svg>
-                </button>
-                <div class="media-slider__viewport" data-slider-viewport tabindex="0" role="region" data-i18n-attr="aria-label:slider.region">
-                  <div class="media-slider__track">
-                    <figure class="media-slider__slide"><img src="images/projects/mecha-crisis/overview-01.png" alt="Capture de gameplay de Mecha Crisis" data-placeholder onerror="this.closest('.media-slider__slide').remove()" /></figure>
-                    <figure class="media-slider__slide"><img src="images/projects/mecha-crisis/overview-02.png" alt="Capture de gameplay de Mecha Crisis" data-placeholder onerror="this.closest('.media-slider__slide').remove()" /></figure>
-                    <figure class="media-slider__slide"><img src="images/projects/mecha-crisis/overview-03.png" alt="Capture de gameplay de Mecha Crisis" data-placeholder onerror="this.closest('.media-slider__slide').remove()" /></figure>
-                    <figure class="media-slider__slide"><img src="images/projects/mecha-crisis/overview-04.png" alt="Capture de gameplay de Mecha Crisis" data-placeholder onerror="this.closest('.media-slider__slide').remove()" /></figure>
-                  </div>
-                </div>
-                <button class="media-slider__button" type="button" data-slider-next data-i18n-attr="aria-label:slider.next">
-                  <svg aria-hidden="true"><use href="icons/sprite.svg#icon-chevron-right"></use></svg>
-                </button>
-              </div>
-              <p class="media-slider__status" data-slider-status role="status" aria-live="polite">1 / 4</p>
-            </div>
-
-            <div class="project-card__block">
-              <h4 class="project-card__block-heading" data-i18n="project.mecha.concept">Game concept</h4>
-              <div class="media-slider" data-slider style="--slider-ratio: 1920 / 1080;">
-                <button class="media-slider__button" type="button" data-slider-prev data-i18n-attr="aria-label:slider.previous" disabled>
-                  <svg aria-hidden="true"><use href="icons/sprite.svg#icon-chevron-left"></use></svg>
-                </button>
-                <div class="media-slider__viewport" data-slider-viewport tabindex="0" role="region" data-i18n-attr="aria-label:slider.region">
-                  <div class="media-slider__track">
-                    <figure class="media-slider__slide"><img src="images/projects/mecha-crisis/concept-01.png" alt="Document de game concept de Mecha Crisis" data-placeholder onerror="this.closest('.media-slider__slide').remove()" /></figure>
-                    <figure class="media-slider__slide"><img src="images/projects/mecha-crisis/concept-02.png" alt="Document de game concept de Mecha Crisis" data-placeholder onerror="this.closest('.media-slider__slide').remove()" /></figure>
-                    <figure class="media-slider__slide"><img src="images/projects/mecha-crisis/concept-03.png" alt="Document de game concept de Mecha Crisis" data-placeholder onerror="this.closest('.media-slider__slide').remove()" /></figure>
-                    <figure class="media-slider__slide"><img src="images/projects/mecha-crisis/concept-04.png" alt="Document de game concept de Mecha Crisis" data-placeholder onerror="this.closest('.media-slider__slide').remove()" /></figure>
-                    <figure class="media-slider__slide"><img src="images/projects/mecha-crisis/concept-05.png" alt="Document de game concept de Mecha Crisis" data-placeholder onerror="this.closest('.media-slider__slide').remove()" /></figure>
-                    <figure class="media-slider__slide"><img src="images/projects/mecha-crisis/concept-06.png" alt="Document de game concept de Mecha Crisis" data-placeholder onerror="this.closest('.media-slider__slide').remove()" /></figure>
-                    <figure class="media-slider__slide"><img src="images/projects/mecha-crisis/concept-07.png" alt="Document de game concept de Mecha Crisis" data-placeholder onerror="this.closest('.media-slider__slide').remove()" /></figure>
-                    <figure class="media-slider__slide"><img src="images/projects/mecha-crisis/concept-08.png" alt="Document de game concept de Mecha Crisis" data-placeholder onerror="this.closest('.media-slider__slide').remove()" /></figure>
-                    <figure class="media-slider__slide"><img src="images/projects/mecha-crisis/concept-09.png" alt="Document de game concept de Mecha Crisis" data-placeholder onerror="this.closest('.media-slider__slide').remove()" /></figure>
-                    <figure class="media-slider__slide"><img src="images/projects/mecha-crisis/concept-10.png" alt="Document de game concept de Mecha Crisis" data-placeholder onerror="this.closest('.media-slider__slide').remove()" /></figure>
-                  </div>
-                </div>
-                <button class="media-slider__button" type="button" data-slider-next data-i18n-attr="aria-label:slider.next">
-                  <svg aria-hidden="true"><use href="icons/sprite.svg#icon-chevron-right"></use></svg>
-                </button>
-              </div>
-              <p class="media-slider__status" data-slider-status role="status" aria-live="polite">1 / 10</p>
-            </div>
-          </div>
-        </article>
-
-        <!-- Projet : Beez Adventures -->
-        <article class="project-card" id="project-beez">
-          <div class="project-card__media">
-            <img src="images/projects/beez-adventures/cover.jpg" alt="Capture du jeu Beez Adventures" data-placeholder />
-          </div>
-          <div class="project-card__body">
-            <p class="project-card__meta" data-i18n="project.beez.subtitle">Niveau de plateforme</p>
-            <h3 class="project-card__title" data-i18n="project.beez.title">Beez Adventures</h3>
-            <p class="project-card__team" data-i18n="project.beez.team">Projet de fin de première année, équipe de 3 élèves en Game Design</p>
-            <p class="project-card__text" data-i18n="project.beez.text">
-              Beez l’abeille vient de se réveiller et a pour mission d’aller butiner les fleurs, mais son chemin ne sera pas de tout repos car de nombreux obstacles l’empêchent d’accomplir sa mission. Marchez, volez et sautez pour éviter vos ennemis et atteindre les fleurs de Beez.
-            </p>
-
-            <p class="project-card__role-text" data-i18n="project.beez.role">
-              Game Concept, mise en place des mécaniques principales, univers, verticalité du level design, blocking, certains assets, sound design, QA testing, UI.
-            </p>
-
-            <div class="project-card__block">
-              <h4 class="project-card__block-heading" data-i18n="project.beez.walkthrough">Walkthrough</h4>
-              <div class="project-card__video">
-                <iframe src="https://www.youtube-nocookie.com/embed/o7x7wS5dZ5o" title="Walkthrough de Beez Adventures" data-video-placeholder="beez-walkthrough" loading="lazy"></iframe>
-              </div>
-            </div>
-
-            <div class="project-card__block">
-              <h4 class="project-card__block-heading" data-i18n="project.beez.overview">Aperçu du jeu</h4>
-              <div class="media-slider" data-slider style="--slider-ratio: 16 / 10;">
-                <button class="media-slider__button" type="button" data-slider-prev data-i18n-attr="aria-label:slider.previous" disabled>
-                  <svg aria-hidden="true"><use href="icons/sprite.svg#icon-chevron-left"></use></svg>
-                </button>
-                <div class="media-slider__viewport" data-slider-viewport tabindex="0" role="region" data-i18n-attr="aria-label:slider.region">
-                  <div class="media-slider__track">
-                    <figure class="media-slider__slide"><img src="images/projects/beez-adventures/overview-01.png" alt="Capture de gameplay de Beez Adventures" data-placeholder onerror="this.closest('.media-slider__slide').remove()" /></figure>
-                    <figure class="media-slider__slide"><img src="images/projects/beez-adventures/overview-02.png" alt="Capture de gameplay de Beez Adventures" data-placeholder onerror="this.closest('.media-slider__slide').remove()" /></figure>
-                    <figure class="media-slider__slide"><img src="images/projects/beez-adventures/overview-03.png" alt="Capture de gameplay de Beez Adventures" data-placeholder onerror="this.closest('.media-slider__slide').remove()" /></figure>
-                    <figure class="media-slider__slide"><img src="images/projects/beez-adventures/overview-04.png" alt="Capture de gameplay de Beez Adventures" data-placeholder onerror="this.closest('.media-slider__slide').remove()" /></figure>
-                  </div>
-                </div>
-                <button class="media-slider__button" type="button" data-slider-next data-i18n-attr="aria-label:slider.next">
-                  <svg aria-hidden="true"><use href="icons/sprite.svg#icon-chevron-right"></use></svg>
-                </button>
-              </div>
-              <p class="media-slider__status" data-slider-status role="status" aria-live="polite">1 / 4</p>
-            </div>
-
-            <div class="project-card__block">
-              <h4 class="project-card__block-heading" data-i18n="project.beez.leveldesign">Aperçu du level design</h4>
-              <div class="media-slider" data-slider style="--slider-ratio: 1 / 1;">
-                <button class="media-slider__button" type="button" data-slider-prev data-i18n-attr="aria-label:slider.previous" disabled>
-                  <svg aria-hidden="true"><use href="icons/sprite.svg#icon-chevron-left"></use></svg>
-                </button>
-                <div class="media-slider__viewport" data-slider-viewport tabindex="0" role="region" data-i18n-attr="aria-label:slider.region">
-                  <div class="media-slider__track">
-                    <figure class="media-slider__slide"><img src="images/projects/beez-adventures/leveldesign-01.png" alt="Plan du level design de Beez Adventures" data-placeholder onerror="this.closest('.media-slider__slide').remove()" /></figure>
-                    <figure class="media-slider__slide"><img src="images/projects/beez-adventures/leveldesign-02.png" alt="Plan du level design de Beez Adventures" data-placeholder onerror="this.closest('.media-slider__slide').remove()" /></figure>
-                    <figure class="media-slider__slide"><img src="images/projects/beez-adventures/leveldesign-03.png" alt="Plan du level design de Beez Adventures" data-placeholder onerror="this.closest('.media-slider__slide').remove()" /></figure>
-                  </div>
-                </div>
-                <button class="media-slider__button" type="button" data-slider-next data-i18n-attr="aria-label:slider.next">
-                  <svg aria-hidden="true"><use href="icons/sprite.svg#icon-chevron-right"></use></svg>
-                </button>
-              </div>
-              <p class="media-slider__status" data-slider-status role="status" aria-live="polite">1 / 3</p>
-            </div>
-
-            <div class="project-card__block">
-              <h4 class="project-card__block-heading" data-i18n="project.beez.assets">Assets réalisés sur Unreal Engine</h4>
-              <div class="media-slider" data-slider style="--slider-ratio: 1 / 1;">
-                <button class="media-slider__button" type="button" data-slider-prev data-i18n-attr="aria-label:slider.previous" disabled>
-                  <svg aria-hidden="true"><use href="icons/sprite.svg#icon-chevron-left"></use></svg>
-                </button>
-                <div class="media-slider__viewport" data-slider-viewport tabindex="0" role="region" data-i18n-attr="aria-label:slider.region">
-                  <div class="media-slider__track">
-                    <figure class="media-slider__slide"><img src="images/projects/beez-adventures/assets-01.png" alt="Asset 3D de Beez Adventures" data-placeholder onerror="this.closest('.media-slider__slide').remove()" /></figure>
-                    <figure class="media-slider__slide"><img src="images/projects/beez-adventures/assets-02.png" alt="Asset 3D de Beez Adventures" data-placeholder onerror="this.closest('.media-slider__slide').remove()" /></figure>
-                    <figure class="media-slider__slide"><img src="images/projects/beez-adventures/assets-03.png" alt="Asset 3D de Beez Adventures" data-placeholder onerror="this.closest('.media-slider__slide').remove()" /></figure>
-                    <figure class="media-slider__slide"><img src="images/projects/beez-adventures/assets-04.png" alt="Asset 3D de Beez Adventures" data-placeholder onerror="this.closest('.media-slider__slide').remove()" /></figure>
-                    <figure class="media-slider__slide"><img src="images/projects/beez-adventures/assets-05.png" alt="Asset 3D de Beez Adventures" data-placeholder onerror="this.closest('.media-slider__slide').remove()" /></figure>
-                    <figure class="media-slider__slide"><img src="images/projects/beez-adventures/assets-06.png" alt="Asset 3D de Beez Adventures" data-placeholder onerror="this.closest('.media-slider__slide').remove()" /></figure>
-                    <figure class="media-slider__slide"><img src="images/projects/beez-adventures/assets-07.png" alt="Asset 3D de Beez Adventures" data-placeholder onerror="this.closest('.media-slider__slide').remove()" /></figure>
-                    <figure class="media-slider__slide"><img src="images/projects/beez-adventures/assets-08.png" alt="Asset 3D de Beez Adventures" data-placeholder onerror="this.closest('.media-slider__slide').remove()" /></figure>
-                  </div>
-                </div>
-                <button class="media-slider__button" type="button" data-slider-next data-i18n-attr="aria-label:slider.next">
-                  <svg aria-hidden="true"><use href="icons/sprite.svg#icon-chevron-right"></use></svg>
-                </button>
-              </div>
-              <p class="media-slider__status" data-slider-status role="status" aria-live="polite">1 / 8</p>
-            </div>
-
-            <div class="project-card__block">
-              <h4 class="project-card__block-heading" data-i18n="project.beez.concept">Game concept</h4>
-              <div class="media-slider" data-slider style="--slider-ratio: 1920 / 1080;">
-                <button class="media-slider__button" type="button" data-slider-prev data-i18n-attr="aria-label:slider.previous" disabled>
-                  <svg aria-hidden="true"><use href="icons/sprite.svg#icon-chevron-left"></use></svg>
-                </button>
-                <div class="media-slider__viewport" data-slider-viewport tabindex="0" role="region" data-i18n-attr="aria-label:slider.region">
-                  <div class="media-slider__track">
-                    <figure class="media-slider__slide"><img src="images/projects/beez-adventures/concept-01.png" alt="Document de game concept de Beez Adventures" data-placeholder onerror="this.closest('.media-slider__slide').remove()" /></figure>
-                    <figure class="media-slider__slide"><img src="images/projects/beez-adventures/concept-02.png" alt="Document de game concept de Beez Adventures" data-placeholder onerror="this.closest('.media-slider__slide').remove()" /></figure>
-                    <figure class="media-slider__slide"><img src="images/projects/beez-adventures/concept-03.png" alt="Document de game concept de Beez Adventures" data-placeholder onerror="this.closest('.media-slider__slide').remove()" /></figure>
-                    <figure class="media-slider__slide"><img src="images/projects/beez-adventures/concept-04.png" alt="Document de game concept de Beez Adventures" data-placeholder onerror="this.closest('.media-slider__slide').remove()" /></figure>
-                    <figure class="media-slider__slide"><img src="images/projects/beez-adventures/concept-05.png" alt="Document de game concept de Beez Adventures" data-placeholder onerror="this.closest('.media-slider__slide').remove()" /></figure>
-                    <figure class="media-slider__slide"><img src="images/projects/beez-adventures/concept-06.png" alt="Document de game concept de Beez Adventures" data-placeholder onerror="this.closest('.media-slider__slide').remove()" /></figure>
-                    <figure class="media-slider__slide"><img src="images/projects/beez-adventures/concept-07.png" alt="Document de game concept de Beez Adventures" data-placeholder onerror="this.closest('.media-slider__slide').remove()" /></figure>
-                    <figure class="media-slider__slide"><img src="images/projects/beez-adventures/concept-08.png" alt="Document de game concept de Beez Adventures" data-placeholder onerror="this.closest('.media-slider__slide').remove()" /></figure>
-                    <figure class="media-slider__slide"><img src="images/projects/beez-adventures/concept-09.png" alt="Document de game concept de Beez Adventures" data-placeholder onerror="this.closest('.media-slider__slide').remove()" /></figure>
-                    <figure class="media-slider__slide"><img src="images/projects/beez-adventures/concept-10.png" alt="Document de game concept de Beez Adventures" data-placeholder onerror="this.closest('.media-slider__slide').remove()" /></figure>
-                    <figure class="media-slider__slide"><img src="images/projects/beez-adventures/concept-11.png" alt="Document de game concept de Beez Adventures" data-placeholder onerror="this.closest('.media-slider__slide').remove()" /></figure>
-                    <figure class="media-slider__slide"><img src="images/projects/beez-adventures/concept-12.png" alt="Document de game concept de Beez Adventures" data-placeholder onerror="this.closest('.media-slider__slide').remove()" /></figure>
-                    <figure class="media-slider__slide"><img src="images/projects/beez-adventures/concept-13.png" alt="Document de game concept de Beez Adventures" data-placeholder onerror="this.closest('.media-slider__slide').remove()" /></figure>
-                    <figure class="media-slider__slide"><img src="images/projects/beez-adventures/concept-14.png" alt="Document de game concept de Beez Adventures" data-placeholder onerror="this.closest('.media-slider__slide').remove()" /></figure>
-                    <figure class="media-slider__slide"><img src="images/projects/beez-adventures/concept-15.png" alt="Document de game concept de Beez Adventures" data-placeholder onerror="this.closest('.media-slider__slide').remove()" /></figure>
-                    <figure class="media-slider__slide"><img src="images/projects/beez-adventures/concept-16.png" alt="Document de game concept de Beez Adventures" data-placeholder onerror="this.closest('.media-slider__slide').remove()" /></figure>
-                    <figure class="media-slider__slide"><img src="images/projects/beez-adventures/concept-17.png" alt="Document de game concept de Beez Adventures" data-placeholder onerror="this.closest('.media-slider__slide').remove()" /></figure>
-                    <figure class="media-slider__slide"><img src="images/projects/beez-adventures/concept-18.png" alt="Document de game concept de Beez Adventures" data-placeholder onerror="this.closest('.media-slider__slide').remove()" /></figure>
-
-                  </div>
-                </div>
-                <button class="media-slider__button" type="button" data-slider-next data-i18n-attr="aria-label:slider.next">
-                  <svg aria-hidden="true"><use href="icons/sprite.svg#icon-chevron-right"></use></svg>
-                </button>
-              </div>
-              <p class="media-slider__status" data-slider-status role="status" aria-live="polite">1 / 18</p>
-            </div>
-          </div>
-        </article>
-
+        </a>
       </div>
 
       <!-- Travaux académiques secondaires -->
@@ -715,5 +402,6 @@
   <script src="scripts/i18n.js"></script>
   <script src="scripts/navbar.js"></script>
   <script src="scripts/slider.js"></script>
+  <script src="scripts/showcase.js"></script>
 </body>
 </html>
