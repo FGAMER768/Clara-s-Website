@@ -34,16 +34,10 @@ styles/
 
 ## À faire avant mise en ligne
 
-1. **Images** : remplacer chaque fichier placeholder par les vrais visuels,
-   en gardant les mêmes noms de fichiers et le même dossier, ou en mettant
-   à jour les chemins dans `index.html`. Chaque `<img>` a déjà un texte
-   alternatif (`alt`) décrivant l'image pour l'accessibilité : à ajuster si
-   le visuel final diffère du placeholder.
-2. **Vidéos** : chaque bloc `iframe[data-video-placeholder]` attend une URL
-   YouTube en mode "no cookie" du type
-   `https://www.youtube-nocookie.com/embed/ID_DE_LA_VIDEO`, à insérer dans
-   l'attribut `src`.
-3. **Email de contact** : remplacer `contact@example.com` par l'adresse
+1. **Vidéos** : chaque bloc `iframe[data-video-id]` embarque une vidéo
+   YouTube en mode "no cookie", via une URL du type
+   `https://www.youtube-nocookie.com/embed/ID_DE_LA_VIDEO`.
+2. **Email de contact** : remplacer `contact@example.com` par l'adresse
    réelle, dans le lien `mailto:` en bas de page.
 
 ## Fonctionnement des deux systèmes légers
