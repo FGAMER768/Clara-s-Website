@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Étude de cas : VALORANT - Clara Cahours de Virgile</title>
+  <meta name="description" content="Étude de cas de deuxième année en gestion de production, sur le jeu VALORANT de Riot Games, par Clara Cahours de Virgile." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="../styles/tokens.css" />
+  <link rel="stylesheet" href="../styles/base.css" />
+  <link rel="stylesheet" href="../styles/layout.css" />
+  <link rel="stylesheet" href="../styles/navbar.css" />
+  <link rel="stylesheet" href="../styles/hero.css" />
+  <link rel="stylesheet" href="../styles/cards.css" />
+  <link rel="stylesheet" href="../styles/gallery.css" />
+  <link rel="stylesheet" href="../styles/lightbox.css" />
+  <link rel="stylesheet" href="../styles/project-page.css" />
+  <link rel="stylesheet" href="../styles/footer.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Aller au contenu principal</a>
+
+  <header>
+    <nav class="navbar" aria-label="Navigation principale">
+      <a class="navbar__brand" href="../index.html" style="color: inherit; text-decoration: none;">Clara</a>
+
+      <button class="navbar__icon-btn navbar__menu-toggle" data-menu-toggle aria-expanded="false" aria-controls="nav-links" aria-label="Ouvrir le menu">
+        <span class="navbar__burger" aria-hidden="true">
+          <span class="navbar__burger-bar"></span>
+          <span class="navbar__burger-bar"></span>
+          <span class="navbar__burger-bar"></span>
+        </span>
+      </button>
+
+      <ul class="navbar__links" id="nav-links" data-nav-links data-open="false">
+        <li><a class="navbar__link" href="../index.html#about" data-i18n="nav.about">Qui suis-je</a></li>
+        <li><a class="navbar__link" href="../index.html#path" data-i18n="nav.path">Parcours</a></li>
+        <li><a class="navbar__link" href="../index.html#projects" data-i18n="nav.projects">Projets</a></li>
+        <li><a class="navbar__link" href="../index.html#gallery" data-i18n="nav.art">Productions visuelles</a></li>
+        <li><a class="navbar__link" href="../index.html#contact" data-i18n="nav.contact">Contact</a></li>
+      </ul>
+
+      <div class="navbar__controls">
+        <button class="navbar__icon-btn" data-theme-toggle aria-pressed="false" data-i18n-attr="aria-label:theme.toggle" aria-label="Changer le thème">
+          <svg class="icon-moon" aria-hidden="true"><use href="../icons/sprite.svg#icon-moon"></use></svg>
+          <svg class="icon-sun" aria-hidden="true"><use href="../icons/sprite.svg#icon-sun"></use></svg>
+        </button>
+
+        <div class="navbar__lang" role="group" data-i18n-attr="aria-label:lang.toggle" aria-label="Changer de langue">
+          <button class="navbar__lang-btn" data-lang-btn="fr" aria-pressed="true">FR</button>
+          <button class="navbar__lang-btn" data-lang-btn="en" aria-pressed="false">EN</button>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main-content">
+    <section class="project-page container">
+      <a class="project-page__back" href="../index.html#projects" data-i18n="project.back">
+        <svg aria-hidden="true"><use href="../icons/sprite.svg#icon-chevron-left"></use></svg>
+        Retour aux projets
+      </a>
+
+      <div class="project-grid">
+        <article class="project-card" id="project-casestudy-page">
+          <div class="project-card__body">
+            <p class="project-card__meta" data-i18n="project.casestudy.team">Devoir de deuxième année, gestion de production</p>
+            <h1 class="project-card__title" data-i18n="casestudy.page.title">Étude de cas : VALORANT</h1>
+            <p class="project-card__subtitle" data-i18n="casestudy.page.subtitle">Rédaction d’une étude de cas complète et détaillée d’un jeu vidéo au choix</p>
+
+            <p class="project-card__text" data-i18n="casestudy.page.intro">
+              Pour ce devoir de gestion de production, j’ai choisi d’étudier VALORANT, le FPS tactique multijoueur développé par Riot Games. L’objectif était d’analyser en profondeur la genèse, les mécaniques, la direction artistique et le modèle économique du jeu, jusqu’à sa réception par la communauté et sa vision à long terme.
+            </p>
+
+            <h2 class="project-card__role-heading" data-i18n="casestudy.page.sommaireHeading">Sommaire du document</h2>
+            <ul class="project-card__role-text">
+              <li data-i18n="casestudy.page.sommaire.1">Contexte et genèse du projet</li>
+              <li data-i18n="casestudy.page.sommaire.2">Mécaniques de jeu</li>
+              <li data-i18n="casestudy.page.sommaire.3">Direction artistique et immersion</li>
+              <li data-i18n="casestudy.page.sommaire.4">Interface utilisateur</li>
+              <li data-i18n="casestudy.page.sommaire.5">Impact et réception, anti-triche de Riot</li>
+              <li data-i18n="casestudy.page.sommaire.6">Modèle économique et bugs</li>
+              <li data-i18n="casestudy.page.sommaire.7">Mises à jour régulières et retours de la communauté</li>
+              <li data-i18n="casestudy.page.sommaire.8">Vision à long terme et conclusion</li>
+            </ul>
+
+            <!-- TODO Clara : remplacer href="#" par le vrai lien vers le PDF/document complet -->
+            <a class="project-card__link" href="#" target="_blank" rel="noopener" data-i18n="casestudy.page.link">
+              Lire l’étude de cas complète
+              <svg aria-hidden="true"><use href="../icons/sprite.svg#icon-chevron-right"></use></svg>
+            </a>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer container">
+    <div class="site-footer__inner">
+      <p>&copy; 2026 Clara Cahours de Virgile - <span data-i18n="footer.rights">Tous droits réservés</span></p>
+      <div class="site-footer__links">
+        <a href="../mentions-legales.html" data-i18n="footer.legal">Mentions légales</a>
+        <a href="../politique-de-confidentialite.html" data-i18n="footer.privacy">Politique de confidentialité</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../scripts/theme.js"></script>
+  <script src="../scripts/i18n.js"></script>
+  <script src="../scripts/navbar.js"></script>
+</body>
+</html>
