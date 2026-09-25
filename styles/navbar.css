@@ -41,11 +41,9 @@
     background-color var(--duration-fast) var(--ease-standard);
 }
 
-@media (hover: hover) and (pointer: fine) {
-  .navbar__link:hover {
-    color: var(--color-ink);
-    background-color: var(--color-accent-soft);
-  }
+.navbar__link:hover {
+  color: var(--color-ink);
+  background-color: var(--color-accent-soft);
 }
 
 .navbar__link[aria-current="true"] {
@@ -73,10 +71,8 @@
   transition: background-color var(--duration-fast) var(--ease-standard);
 }
 
-@media (hover: hover) and (pointer: fine) {
-  .navbar__icon-btn:hover {
-    background-color: var(--color-accent-soft);
-  }
+.navbar__icon-btn:hover {
+  background-color: var(--color-accent-soft);
 }
 
 .navbar__icon-btn svg {

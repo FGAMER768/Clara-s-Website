@@ -152,21 +152,19 @@
   transform: scale(1.03);
 }
 
-@media (hover: hover) and (pointer: fine) {
-  .roleplay-card:hover {
-    transform: perspective(60rem) rotateX(2deg) translateY(-0.35rem);
-    border-color: var(--color-secondary);
-    box-shadow: var(--shadow-raised);
-  }
+.roleplay-card:hover {
+  transform: perspective(60rem) rotateX(2deg) translateY(-0.35rem);
+  border-color: var(--color-secondary);
+  box-shadow: var(--shadow-raised);
+}
 
-  .roleplay-card:hover::before {
-    opacity: 1;
-  }
+.roleplay-card:hover::before {
+  opacity: 1;
+}
 
-  .roleplay-card:hover .roleplay-card__media img {
-    filter: grayscale(0) contrast(1.02);
-    transform: scale(1.03);
-  }
+.roleplay-card:hover .roleplay-card__media img {
+  filter: grayscale(0) contrast(1.02);
+  transform: scale(1.03);
 }
 
 .roleplay-card:focus-visible {

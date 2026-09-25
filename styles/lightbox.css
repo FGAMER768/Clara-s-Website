@@ -113,11 +113,9 @@
     transform var(--duration-fast) var(--ease-standard);
 }
 
-@media (hover: hover) and (pointer: fine) {
-  .lightbox__close:hover,
-  .lightbox__nav:hover:not(:disabled) {
-    background-color: rgba(30, 25, 38, 0.85);
-  }
+.lightbox__close:hover,
+.lightbox__nav:hover:not(:disabled) {
+  background-color: rgba(30, 25, 38, 0.85);
 }
 
 .lightbox__nav:active:not(:disabled) {

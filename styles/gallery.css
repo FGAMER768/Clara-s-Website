@@ -85,10 +85,8 @@
   height: 1.25rem;
 }
 
-@media (hover: hover) and (pointer: fine) {
-  .media-slider__button:hover:not(:disabled) {
-    background-color: var(--color-accent-soft);
-  }
+.media-slider__button:hover:not(:disabled) {
+  background-color: var(--color-accent-soft);
 }
 
 .media-slider__button:disabled {

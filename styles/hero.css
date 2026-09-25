@@ -181,15 +181,13 @@
   transition: transform 500ms var(--ease-standard);
 }
 
-@media (hover: hover) and (pointer: fine) {
-  .hero__portrait:hover {
-    transform: translateY(-0.35rem) rotate(2deg) scale(1.03);
-    box-shadow: 0 0 0 2px var(--color-accent-strong), 0 0 0 10px var(--color-accent-soft), 0 0 3.5rem color-mix(in srgb, var(--color-accent) 72%, transparent), var(--shadow-raised);
-  }
+.hero__portrait:hover {
+  transform: translateY(-0.35rem) rotate(2deg) scale(1.03);
+  box-shadow: 0 0 0 2px var(--color-accent-strong), 0 0 0 10px var(--color-accent-soft), 0 0 3.5rem color-mix(in srgb, var(--color-accent) 72%, transparent), var(--shadow-raised);
+}
 
-  .hero__portrait:hover img {
-    transform: scale(1.06);
-  }
+.hero__portrait:hover img {
+  transform: scale(1.06);
 }
 
 .hero__name {
@@ -227,9 +225,7 @@
     border-color var(--duration-fast) var(--ease-standard);
 }
 
-@media (hover: hover) and (pointer: fine) {
-  .hero__cta:hover {
-    color: var(--color-accent-strong);
-    border-color: var(--color-accent-strong);
-  }
+.hero__cta:hover {
+  color: var(--color-accent-strong);
+  border-color: var(--color-accent-strong);
 }

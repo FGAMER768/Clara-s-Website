@@ -18,10 +18,12 @@
   "use strict";
 
   document.addEventListener("DOMContentLoaded", function () {
-    // On récupère les jaquettes de TOUTES les vitrines de la page (il peut y
-    // en avoir plusieurs, ex. projets principaux + travaux académiques), pas
-    // seulement celles de la première .showcase rencontrée.
-    var tiles = Array.prototype.slice.call(document.querySelectorAll(".showcase__tile"));
+    var showcase = document.querySelector(".showcase");
+    if (!showcase) {
+      return;
+    }
+
+    var tiles = Array.prototype.slice.call(showcase.querySelectorAll(".showcase__tile"));
     if (!tiles.length) {
       return;
     }
@@ -92,8 +94,17 @@
 
     var lastHoveredTile = null;
 
+    // Sur tactile, un tap déclenche souvent "focus" (parfois "mouseenter"
+    // aussi, simulé par le navigateur) immédiatement suivi de "click" :
+    // sans garde-fou, ça joue le son de survol PUIS le son de sélection
+    // pour un seul et même tap, ce qui donne les deux sons collés l'un
+    // à l'autre. On ne joue le son de survol que si l'interaction vient
+    // réellement d'un pointeur précis (souris) ou du clavier (Tab), pas
+    // d'un tap tactile.
+    var suppressHoverSound = false;
+
     function handleHoverEnter(tile) {
-      if (lastHoveredTile === tile) {
+      if (suppressHoverSound || lastHoveredTile === tile) {
         return;
       }
       lastHoveredTile = tile;
@@ -130,6 +141,9 @@
 
       // Son au survol clavier (focus natif via Tab), cohérent avec la
       // souris : le style visuel :focus-visible existant s'en charge déjà.
+      // Un tap tactile déclenche aussi "focus" juste avant "click" : le
+      // handler pointerdown ci-dessous, appelé en premier, prévient ce
+      // cas via suppressHoverSound pour ne garder que le son de tap.
       tile.addEventListener("focus", function () {
         handleHoverEnter(tile);
       });
@@ -137,7 +151,15 @@
         handleHoverLeave(tile);
       });
 
-      // Clic souris : son de validation avant la navigation.
+      // Détecte si l'interaction en cours vient du tactile, avant même
+      // que "focus" ou "click" ne se déclenchent (pointerdown est le
+      // tout premier événement de la séquence, aussi bien pour la
+      // souris que pour le doigt).
+      tile.addEventListener("pointerdown", function (event) {
+        suppressHoverSound = event.pointerType === "touch" || event.pointerType === "pen";
+      });
+
+      // Clic (souris ou tap) : son de validation avant la navigation.
       tile.addEventListener("click", function (event) {
         // Un clic du milieu / ctrl+clic / cmd+clic ouvre dans un nouvel
         // onglet : le navigateur gère déjà ça très bien, on ne touche à
@@ -147,6 +169,10 @@
         }
         event.preventDefault();
         activateTile(tile);
+        // Le prochain focus (ex: Tab reçu juste après cette navigation
+        // annulée sur la même page) doit à nouveau pouvoir jouer le son
+        // de survol normalement.
+        suppressHoverSound = false;
       });
 
       // Entrée sur une jaquette qui a le focus (Tab) : même son de

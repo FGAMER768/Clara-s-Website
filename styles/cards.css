@@ -96,16 +96,9 @@
   transition: color var(--duration-fast) var(--ease-standard);
 }
 
-/* :hover réservé aux dispositifs à pointeur précis (souris, trackpad) :
-   sur tactile, un tap déclenche souvent aussi le :hover juste après (ou
-   en même temps que) le :active, ce qui cumule les deux styles au lieu
-   de n'appliquer que le retour au tap. Voir aussi ripple.css/ripple.js
-   pour l'effet de retour tactile dédié. */
-@media (hover: hover) and (pointer: fine) {
-  .project-card__link:hover {
-    color: var(--color-secondary);
-    border-color: var(--color-secondary);
-  }
+.project-card__link:hover {
+  color: var(--color-secondary);
+  border-color: var(--color-secondary);
 }
 
 /* Sous-sections internes d'un projet : rôle, walkthrough, galerie d'images */
@@ -187,11 +180,9 @@
   border-bottom: 2px solid var(--color-accent);
 }
 
-@media (hover: hover) and (pointer: fine) {
-  .mini-card__link:hover {
-    color: var(--color-secondary);
-    border-color: var(--color-secondary);
-  }
+.mini-card__link:hover {
+  color: var(--color-secondary);
+  border-color: var(--color-secondary);
 }
 
 /* Petits exercices : deux vidéos avec leur descriptif, en grille */
