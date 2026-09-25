@@ -45,9 +45,6 @@ styles/
    l'attribut `src`.
 3. **Email de contact** : remplacer `contact@example.com` par l'adresse
    réelle, dans le lien `mailto:` en bas de page.
-4. **Mentions légales / confidentialité** : deux pages sont référencées en
-   pied de page (`mentions-legales.html`, `politique-de-confidentialite.html`)
-   mais ne sont pas fournies ici, à créer sur le même gabarit si besoin.
 
 ## Fonctionnement des deux systèmes légers
 

@@ -13,16 +13,6 @@
   color: var(--color-ink-muted);
 }
 
-.site-footer__links {
-  display: flex;
-  gap: var(--space-5);
-  flex-wrap: wrap;
-}
-
-.site-footer__links a:hover {
-  color: var(--color-accent-strong);
-}
-
 .contact-section {
   text-align: center;
 }
