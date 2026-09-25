@@ -125,7 +125,9 @@
     "analysis.page.sommaire.4": "Intentions de design et courbe de difficulté",
     "analysis.page.sommaire.5": "Modèle économique et rétention du joueur",
     "analysis.page.sommaire.6": "Conclusion et enseignements tirés pour ma pratique",
-    "analysis.page.slidesHeading": "Diaporama d’analyse"
+    "analysis.page.slidesHeading": "Diaporama d’analyse",
+    "academicWork.heading": "Travaux académiques",
+    "academicWork.intro": "Devoirs notés réalisés en parallèle des projets : analyse de jeu, étude de cas, scénario et bible d’univers."
   },
   "en": {
     "meta.title": "Clara Cahours de Virgile - Portfolio",
@@ -253,6 +255,8 @@
     "analysis.page.sommaire.4": "Design intent and difficulty curve",
     "analysis.page.sommaire.5": "Economic model and player retention",
     "analysis.page.sommaire.6": "Conclusion and takeaways for my practice",
-    "analysis.page.slidesHeading": "Analysis slideshow"
+    "analysis.page.slidesHeading": "Analysis slideshow",
+    "academicWork.heading": "Academic work",
+    "academicWork.intro": "Graded assignments completed alongside the main projects: game analysis, case study, screenwriting and universe bible."
   }
 }

@@ -18,12 +18,10 @@
   "use strict";
 
   document.addEventListener("DOMContentLoaded", function () {
-    var showcase = document.querySelector(".showcase");
-    if (!showcase) {
-      return;
-    }
-
-    var tiles = Array.prototype.slice.call(showcase.querySelectorAll(".showcase__tile"));
+    // On récupère les jaquettes de TOUTES les vitrines de la page (il peut y
+    // en avoir plusieurs, ex. projets principaux + travaux académiques), pas
+    // seulement celles de la première .showcase rencontrée.
+    var tiles = Array.prototype.slice.call(document.querySelectorAll(".showcase__tile"));
     if (!tiles.length) {
       return;
     }
