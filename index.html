@@ -370,6 +370,28 @@
         </figure>
       </div>
 
+      <!-- Production additionnelle, en dehors du cadrillage : un slider
+           dédié, réutilisant le composant media-slider du reste du site. -->
+      <div class="gallery__extra">
+        <div class="media-slider" data-slider style="--slider-ratio: 4 / 3;">
+          <button class="media-slider__button" type="button" data-slider-prev data-i18n-attr="aria-label:slider.previous" disabled>
+            <svg aria-hidden="true"><use href="icons/sprite.svg#icon-chevron-left"></use></svg>
+          </button>
+          <div class="media-slider__viewport" data-slider-viewport tabindex="0" role="region" data-i18n-attr="aria-label:slider.region">
+            <div class="media-slider__track">
+              <figure class="media-slider__slide">
+                <img src="images/gallery/3d-vent.jpg" alt="Production 3D sur 3DS Max, intégrée dans Unreal Engine, environnement interagissant avec le vent" data-placeholder onerror="this.closest('.media-slider__slide').remove()" />
+              </figure>
+            </div>
+          </div>
+          <button class="media-slider__button" type="button" data-slider-next data-i18n-attr="aria-label:slider.next">
+            <svg aria-hidden="true"><use href="icons/sprite.svg#icon-chevron-right"></use></svg>
+          </button>
+        </div>
+        <p class="media-slider__status" data-slider-status role="status" aria-live="polite">1 / 1</p>
+        <p class="gallery__extra-caption">Production 3D sur 3DS Max, intégrée dans Unreal Engine. L’environnement interagit avec la force du vent.</p>
+      </div>
+
     </section>
 
     <!-- CONTACT -->

@@ -135,6 +135,29 @@
   }
 }
 
+/*
+  Production additionnelle sous le cadrillage : un slider dédié,
+  distinct visuellement de la grille (pas de bordure --color-border
+  ni de gap 3px) mais gardant le même rythme d'espacement vertical
+  que le reste des sections du site.
+*/
+.gallery__extra {
+  margin-top: var(--space-6);
+  max-width: 36rem;
+}
+
+.gallery__extra-caption {
+  margin-top: var(--space-3);
+  font-size: var(--step-sm);
+  color: var(--color-ink-muted);
+}
+
+@media (max-width: 26rem) {
+  .gallery__extra {
+    max-width: none;
+  }
+}
+
 .media-slider {
   display: grid;
   grid-template-columns: auto minmax(0, 1fr) auto;
