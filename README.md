@@ -34,11 +34,6 @@ styles/
 
 ## À faire avant mise en ligne
 
-1. **Vidéos** : chaque bloc `iframe[data-video-id]` embarque une vidéo
-   YouTube en mode "no cookie", via une URL du type
-   `https://www.youtube-nocookie.com/embed/ID_DE_LA_VIDEO`.
-2. **Email de contact** : remplacer `contact@example.com` par l'adresse
-   réelle, dans le lien `mailto:` en bas de page.
 
 ## Fonctionnement des deux systèmes légers
 
