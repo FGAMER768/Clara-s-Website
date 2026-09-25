@@ -264,6 +264,28 @@
   font-size: var(--step-xs);
 }
 
+/*
+  Vidéo sous le slider : même composant que les walkthroughs des pages
+  projet (.project-card__video, iframe YouTube 16:9), avec une légende
+  sur deux lignes cohérente avec les légendes des slides au-dessus.
+  Largeur volontairement limitée (contrairement au walkthrough plein
+  cadre des pages projet) : ici la vidéo est un complément au slider,
+  pas le bloc principal de la section, donc elle ne doit pas dominer
+  toute la largeur du container.
+*/
+.gallery__video {
+  max-width: 28rem;
+  margin: var(--space-6) auto 0;
+}
+
+.gallery__video-caption {
+  margin-top: var(--space-3);
+  text-align: center;
+  color: var(--color-ink-muted);
+  font-size: var(--step-sm);
+  line-height: var(--leading-normal);
+}
+
 @media (max-width: 40rem) {
   .media-slider {
     gap: var(--space-2);
