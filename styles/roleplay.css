@@ -1,0 +1,200 @@
+/*
+  Vitrine des personnages de jeu de rôle : même intention que les
+  jaquettes de la bibliothèque de jeux (.showcase) — une image qui mène
+  à une fiche détaillée — mais un objet visuel différent, pensé comme un
+  "dossier de personnage" plutôt qu'une boîte de jeu : coin supérieur
+  droit coupé façon chemise cartonnée, plaque-titre gravée toujours
+  visible en bas, liseré fin qui s'allume à la sélection. Aucun son ici
+  (contrairement à .showcase__tile) : l'interaction reste silencieuse.
+*/
+
+.roleplay-showcase {
+  margin-top: var(--space-7);
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-6);
+  max-width: 44rem;
+}
+
+.roleplay-card {
+  position: relative;
+  display: block;
+  aspect-ratio: 3 / 4;
+  background-color: var(--color-paper-raised);
+  border: 1px solid var(--color-border);
+  isolation: isolate;
+  transform: perspective(60rem) rotateX(0deg) translateY(0);
+  transition:
+    transform var(--duration-base) var(--ease-standard),
+    border-color var(--duration-base) var(--ease-standard),
+    box-shadow var(--duration-base) var(--ease-standard);
+  box-shadow: var(--shadow-soft);
+  /* Coin supérieur droit "corné" façon chemise de dossier : coupe nette,
+     pas d'arrondi — c'est ce qui distingue silhouette-parlante de la
+     jaquette rectangulaire classique. */
+  clip-path: polygon(
+    0% 0%,
+    calc(100% - 1.75rem) 0%,
+    100% 1.75rem,
+    100% 100%,
+    0% 100%
+  );
+}
+
+/* Le pli du coin corné : un petit triangle qui suggère l'épaisseur du
+   papier replié, dans la couleur secondaire. */
+.roleplay-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 1.75rem;
+  height: 1.75rem;
+  z-index: 2;
+  background: linear-gradient(
+    135deg,
+    var(--color-paper) 50%,
+    var(--color-secondary) 50%
+  );
+  opacity: 0.9;
+  transition: opacity var(--duration-base) var(--ease-standard);
+}
+
+.roleplay-card__media {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.roleplay-card__media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(0.35) contrast(1.02);
+  transition: filter var(--duration-base) var(--ease-standard), transform var(--duration-base) var(--ease-standard);
+}
+
+/* Voile permanent, discret, pour garantir la lisibilité de la plaque du
+   bas quelle que soit l'image posée dessous. */
+.roleplay-card__media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(17, 14, 23, 0.86) 0%,
+    rgba(17, 14, 23, 0.15) 38%,
+    rgba(17, 14, 23, 0) 60%
+  );
+}
+
+/* Plaque-titre gravée : toujours visible (contrairement à l'overlay des
+   jaquettes qui n'apparaît qu'au survol), posée comme une étiquette
+   rivetée en bas du dossier. */
+.roleplay-card__plate {
+  position: absolute;
+  left: var(--space-4);
+  right: var(--space-4);
+  bottom: var(--space-4);
+  z-index: 1;
+  padding: var(--space-3) var(--space-4);
+  border: 1px solid rgba(247, 244, 241, 0.35);
+  background: rgba(17, 14, 23, 0.35);
+  backdrop-filter: blur(2px);
+}
+
+.roleplay-card__eyebrow {
+  font-size: var(--step-xs);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-secondary-soft);
+}
+
+.roleplay-card__title {
+  margin-top: var(--space-1);
+  font-size: var(--step-md);
+  line-height: var(--leading-tight);
+  color: #FFFFFF;
+}
+
+.roleplay-card__tag {
+  margin-top: var(--space-2);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  font-size: var(--step-xs);
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.roleplay-card__tag svg {
+  width: 0.9rem;
+  height: 0.9rem;
+}
+
+/* États hover / focus : légère bascule façon page qu'on soulève du bureau,
+   liseré qui s'éclaire, image qui reprend un peu de couleur. Pas de halo,
+   pas de son — juste un mouvement retenu, cohérent avec l'objet "dossier". */
+.roleplay-card:focus-visible {
+  transform: perspective(60rem) rotateX(2deg) translateY(-0.35rem);
+  border-color: var(--color-secondary);
+  box-shadow: var(--shadow-raised);
+}
+
+.roleplay-card:focus-visible::before {
+  opacity: 1;
+}
+
+.roleplay-card:focus-visible .roleplay-card__media img {
+  filter: grayscale(0) contrast(1.02);
+  transform: scale(1.03);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .roleplay-card:hover {
+    transform: perspective(60rem) rotateX(2deg) translateY(-0.35rem);
+    border-color: var(--color-secondary);
+    box-shadow: var(--shadow-raised);
+  }
+
+  .roleplay-card:hover::before {
+    opacity: 1;
+  }
+
+  .roleplay-card:hover .roleplay-card__media img {
+    filter: grayscale(0) contrast(1.02);
+    transform: scale(1.03);
+  }
+}
+
+.roleplay-card:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 3px;
+}
+
+@media (min-width: 30rem) {
+  .roleplay-showcase {
+    max-width: none;
+  }
+}
+
+@media (min-width: 52rem) {
+  .roleplay-showcase {
+    grid-template-columns: repeat(4, minmax(0, 14rem));
+    gap: var(--space-6);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .roleplay-card,
+  .roleplay-card__media img {
+    transition: none;
+  }
+
+  .roleplay-card:hover,
+  .roleplay-card:focus-visible {
+    transform: none;
+  }
+}

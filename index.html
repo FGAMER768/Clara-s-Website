@@ -18,6 +18,7 @@
   <link rel="stylesheet" href="styles/timeline.css" />
   <link rel="stylesheet" href="styles/cards.css" />
   <link rel="stylesheet" href="styles/showcase.css" />
+  <link rel="stylesheet" href="styles/roleplay.css" />
   <link rel="stylesheet" href="styles/gallery.css" />
   <link rel="stylesheet" href="styles/footer.css" />
 </head>
@@ -269,18 +270,34 @@
         Créer des personnages est une passion. Imaginer leur histoire, leur personnalité, leurs motivations et leurs failles avant même de les incarner, puis leur donner vie en sessions de jeu de rôle, sur Red Dead Redemption 2 (RedM) ou GTA V (FiveM).
       </p>
 
-      <div class="mini-grid" style="margin-top: var(--space-6);">
-        <div class="mini-card">
-          <p class="mini-card__eyebrow" data-i18n="roleplay.rdr.year">Créé en 2025</p>
-          <h3 class="mini-card__title" data-i18n="roleplay.rdr.title">Personnage sur Red Dead Redemption II</h3>
-          <a class="mini-card__link" href="https://docs.google.com/presentation/d/1J1Y4yuOYaOzvfIcJqI95yTZv-vWPqA67rp1YIB7pgxo/edit" target="_blank" rel="noopener" data-i18n="roleplay.link">Lire le document</a>
-        </div>
+      <div class="roleplay-showcase">
+        <a class="roleplay-card" href="pages/roleplay-rdr2.html">
+          <div class="roleplay-card__media">
+            <img src="images/projects/roleplay-rdr2/cover.svg" alt="Portrait du personnage incarné sur Red Dead Redemption II" data-placeholder />
+          </div>
+          <div class="roleplay-card__plate">
+            <p class="roleplay-card__eyebrow" data-i18n="roleplay.rdr.year">Créé en 2025</p>
+            <h3 class="roleplay-card__title" data-i18n="roleplay.rdr.title">Personnage sur Red Dead Redemption II</h3>
+            <span class="roleplay-card__tag">
+              <svg aria-hidden="true"><use href="icons/sprite.svg#icon-play"></use></svg>
+              <span data-i18n="roleplay.card.view">Voir la fiche</span>
+            </span>
+          </div>
+        </a>
 
-        <div class="mini-card">
-          <p class="mini-card__eyebrow" data-i18n="roleplay.gta.year">Créé en 2023</p>
-          <h3 class="mini-card__title" data-i18n="roleplay.gta.title">Personnage sur GTA V</h3>
-          <a class="mini-card__link" href="https://docs.google.com/presentation/d/1TvSisR5a-hPyoEQ7xOrV-_9KOIm9iuRI0yEZbi84oxc/edit" target="_blank" rel="noopener" data-i18n="roleplay.link">Lire le document</a>
-        </div>
+        <a class="roleplay-card" href="pages/roleplay-gta5.html">
+          <div class="roleplay-card__media">
+            <img src="images/projects/roleplay-gta5/cover.svg" alt="Portrait du personnage incarné sur GTA V" data-placeholder />
+          </div>
+          <div class="roleplay-card__plate">
+            <p class="roleplay-card__eyebrow" data-i18n="roleplay.gta.year">Créé en 2023</p>
+            <h3 class="roleplay-card__title" data-i18n="roleplay.gta.title">Personnage sur GTA V</h3>
+            <span class="roleplay-card__tag">
+              <svg aria-hidden="true"><use href="icons/sprite.svg#icon-play"></use></svg>
+              <span data-i18n="roleplay.card.view">Voir la fiche</span>
+            </span>
+          </div>
+        </a>
       </div>
     </section>
 

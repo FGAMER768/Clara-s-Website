@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Personnage sur GTA V - Clara Cahours de Virgile</title>
+  <meta name="description" content="Fiche du personnage de jeu de rôle créé pour GTA V (FiveM), par Clara Cahours de Virgile." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="../styles/tokens.css" />
+  <link rel="stylesheet" href="../styles/base.css" />
+  <link rel="stylesheet" href="../styles/layout.css" />
+  <link rel="stylesheet" href="../styles/navbar.css" />
+  <link rel="stylesheet" href="../styles/hero.css" />
+  <link rel="stylesheet" href="../styles/cards.css" />
+  <link rel="stylesheet" href="../styles/gallery.css" />
+  <link rel="stylesheet" href="../styles/lightbox.css" />
+  <link rel="stylesheet" href="../styles/project-page.css" />
+  <link rel="stylesheet" href="../styles/footer.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Aller au contenu principal</a>
+
+  <header>
+    <nav class="navbar" aria-label="Navigation principale">
+      <a class="navbar__brand" href="../index.html" style="color: inherit; text-decoration: none;">Clara</a>
+
+      <button class="navbar__icon-btn navbar__menu-toggle" data-menu-toggle aria-expanded="false" aria-controls="nav-links" aria-label="Ouvrir le menu">
+        <span class="navbar__burger" aria-hidden="true">
+          <span class="navbar__burger-bar"></span>
+          <span class="navbar__burger-bar"></span>
+          <span class="navbar__burger-bar"></span>
+        </span>
+      </button>
+
+      <ul class="navbar__links" id="nav-links" data-nav-links data-open="false">
+        <li><a class="navbar__link" href="../index.html#about" data-i18n="nav.about">Qui suis-je</a></li>
+        <li><a class="navbar__link" href="../index.html#path" data-i18n="nav.path">Parcours</a></li>
+        <li><a class="navbar__link" href="../index.html#projects" data-i18n="nav.projects">Projets</a></li>
+        <li><a class="navbar__link" href="../index.html#gallery" data-i18n="nav.art">Productions visuelles</a></li>
+        <li><a class="navbar__link" href="../index.html#contact" data-i18n="nav.contact">Contact</a></li>
+      </ul>
+
+      <div class="navbar__controls">
+        <button class="navbar__icon-btn" data-theme-toggle aria-pressed="false" data-i18n-attr="aria-label:theme.toggle" aria-label="Changer le thème">
+          <svg class="icon-moon" aria-hidden="true"><use href="../icons/sprite.svg#icon-moon"></use></svg>
+          <svg class="icon-sun" aria-hidden="true"><use href="../icons/sprite.svg#icon-sun"></use></svg>
+        </button>
+
+        <div class="navbar__lang" role="group" data-i18n-attr="aria-label:lang.toggle" aria-label="Changer de langue">
+          <button class="navbar__lang-btn" data-lang-btn="fr" aria-pressed="true">FR</button>
+          <button class="navbar__lang-btn" data-lang-btn="en" aria-pressed="false">EN</button>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main-content">
+    <section class="project-page container">
+      <a class="project-page__back" href="../index.html#roleplay" data-i18n="project.back">
+        <svg aria-hidden="true"><use href="../icons/sprite.svg#icon-chevron-left"></use></svg>
+        Retour aux projets
+      </a>
+
+      <div class="project-grid">
+        <article class="project-card" id="project-roleplay-gta5">
+          <div class="project-card__media">
+            <img src="../images/projects/roleplay-gta5/slide-01.svg" alt="Portrait du personnage incarné sur GTA V" data-placeholder />
+          </div>
+          <div class="project-card__body">
+            <p class="project-card__meta" data-i18n="roleplay.gta.year">Créé en 2023</p>
+            <h1 class="project-card__title" data-i18n="roleplay.gta.page.title">Personnage sur GTA V</h1>
+            <p class="project-card__subtitle" data-i18n="roleplay.gta.page.subtitle">Jeu de rôle sur serveur FiveM</p>
+
+            <p class="project-card__text" data-i18n="roleplay.gta.page.intro">
+              Présentation du personnage à compléter : son histoire, sa personnalité, ses motivations et ses failles, telles qu'imaginées avant de l'incarner en sessions de jeu de rôle.
+            </p>
+
+            <div class="project-card__block">
+              <h4 class="project-card__block-heading" data-i18n="roleplay.page.slidesHeading">Fiche de personnage</h4>
+              <div class="media-slider" data-slider style="--slider-ratio: 16 / 9;">
+                <button class="media-slider__button" type="button" data-slider-prev data-i18n-attr="aria-label:slider.previous" disabled>
+                  <svg aria-hidden="true"><use href="../icons/sprite.svg#icon-chevron-left"></use></svg>
+                </button>
+                <div class="media-slider__viewport" data-slider-viewport tabindex="0" role="region" data-i18n-attr="aria-label:slider.region">
+                  <div class="media-slider__track">
+                    <figure class="media-slider__slide"><img src="../images/projects/roleplay-gta5/slide-01.png" alt="Slide 1 de la fiche du personnage sur GTA V" data-placeholder onerror="this.closest('.media-slider__slide').remove()" /></figure>
+                    <figure class="media-slider__slide"><img src="../images/projects/roleplay-gta5/slide-02.png" alt="Slide 2 de la fiche du personnage sur GTA V" data-placeholder onerror="this.closest('.media-slider__slide').remove()" /></figure>
+                    <figure class="media-slider__slide"><img src="../images/projects/roleplay-gta5/slide-03.png" alt="Slide 3 de la fiche du personnage sur GTA V" data-placeholder onerror="this.closest('.media-slider__slide').remove()" /></figure>
+                    <figure class="media-slider__slide"><img src="../images/projects/roleplay-gta5/slide-04.png" alt="Slide 4 de la fiche du personnage sur GTA V" data-placeholder onerror="this.closest('.media-slider__slide').remove()" /></figure>
+                    <figure class="media-slider__slide"><img src="../images/projects/roleplay-gta5/slide-05.png" alt="Slide 5 de la fiche du personnage sur GTA V" data-placeholder onerror="this.closest('.media-slider__slide').remove()" /></figure>
+                    <figure class="media-slider__slide"><img src="../images/projects/roleplay-gta5/slide-06.png" alt="Slide 6 de la fiche du personnage sur GTA V" data-placeholder onerror="this.closest('.media-slider__slide').remove()" /></figure>
+                    <figure class="media-slider__slide"><img src="../images/projects/roleplay-gta5/slide-07.png" alt="Slide 7 de la fiche du personnage sur GTA V" data-placeholder onerror="this.closest('.media-slider__slide').remove()" /></figure>
+                  </div>
+                </div>
+                <button class="media-slider__button" type="button" data-slider-next data-i18n-attr="aria-label:slider.next">
+                  <svg aria-hidden="true"><use href="../icons/sprite.svg#icon-chevron-right"></use></svg>
+                </button>
+              </div>
+              <p class="media-slider__status" data-slider-status role="status" aria-live="polite">1 / 7</p>
+            </div>
+
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer container">
+    <div class="site-footer__inner">
+      <p>&copy; 2026 Clara Cahours de Virgile - <span data-i18n="footer.rights">Tous droits réservés</span></p>
+      <div class="site-footer__links">
+        <a href="../mentions-legales.html" data-i18n="footer.legal">Mentions légales</a>
+        <a href="../politique-de-confidentialite.html" data-i18n="footer.privacy">Politique de confidentialité</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../scripts/theme.js"></script>
+  <script src="../scripts/i18n.js"></script>
+  <script src="../scripts/navbar.js"></script>
+  <script src="../scripts/slider.js"></script>
+  <script src="../scripts/lightbox.js"></script>
+</body>
+</html>
