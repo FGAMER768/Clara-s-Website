@@ -1,9 +1,21 @@
 (function () {
   "use strict";
 
+  // Chemin du sprite d'icônes, déduit de l'emplacement de CE script
+  // plutôt que codé en dur en relatif ("../icons/..."). Ainsi
+  // lightbox.js fonctionne aussi bien inclus depuis la racine
+  // (index.html, "scripts/lightbox.js") que depuis pages/*.html
+  // ("../scripts/lightbox.js"), sans jamais pointer au mauvais endroit.
+  var scriptEl = document.currentScript;
+  var spritePath = "icons/sprite.svg";
+  if (scriptEl && scriptEl.src) {
+    spritePath = new URL("../icons/sprite.svg", scriptEl.src).href;
+  }
+
   document.addEventListener("DOMContentLoaded", function () {
     var sliders = document.querySelectorAll("[data-slider]");
-    if (!sliders.length) {
+    var galleries = document.querySelectorAll(".gallery__item");
+    if (!sliders.length && !galleries.length) {
       return;
     }
 
@@ -24,16 +36,16 @@
     lightbox.setAttribute("aria-hidden", "true");
     lightbox.innerHTML =
       '<button class="lightbox__close" type="button" data-lightbox-close aria-label="Fermer">' +
-      '<svg aria-hidden="true"><use href="../icons/sprite.svg#icon-close"></use></svg>' +
+      '<svg aria-hidden="true"><use href="' + spritePath + '#icon-close"></use></svg>' +
       "</button>" +
       '<button class="lightbox__nav lightbox__nav--prev" type="button" data-lightbox-prev aria-label="Image précédente">' +
-      '<svg aria-hidden="true"><use href="../icons/sprite.svg#icon-chevron-left"></use></svg>' +
+      '<svg aria-hidden="true"><use href="' + spritePath + '#icon-chevron-left"></use></svg>' +
       "</button>" +
       '<div class="lightbox__stage">' +
       '<img class="lightbox__image" data-lightbox-image alt="" />' +
       "</div>" +
       '<button class="lightbox__nav lightbox__nav--next" type="button" data-lightbox-next aria-label="Image suivante">' +
-      '<svg aria-hidden="true"><use href="../icons/sprite.svg#icon-chevron-right"></use></svg>' +
+      '<svg aria-hidden="true"><use href="' + spritePath + '#icon-chevron-right"></use></svg>' +
       "</button>" +
       '<p class="lightbox__status" data-lightbox-status></p>';
     document.body.appendChild(lightbox);
@@ -119,6 +131,30 @@
         }
         var slides = slider.querySelectorAll(".media-slider__slide img");
         var images = Array.prototype.slice.call(slides);
+        var startIndex = images.indexOf(img);
+        openLightbox(images, Math.max(0, startIndex));
+      });
+    });
+
+    // --- Ouverture depuis le cadrillage (.gallery) ----------------------
+    // Même principe que les sliders : cliquer n'importe où sur une tuile
+    // (y compris sa légende, positionnée en overlay au-dessus de l'image
+    // et non comme un enfant du <img>) ouvre la lightbox avec toutes les
+    // images du cadrillage, dans l'ordre où elles apparaissent.
+    document.querySelectorAll(".gallery").forEach(function (gallery) {
+      gallery.addEventListener("click", function (event) {
+        var item = event.target.closest(".gallery__item");
+        if (!item) {
+          return;
+        }
+        var img = item.querySelector(".gallery__image img");
+        if (!img) {
+          return;
+        }
+        var items = gallery.querySelectorAll(".gallery__item");
+        var images = Array.prototype.map.call(items, function (el) {
+          return el.querySelector(".gallery__image img");
+        }).filter(Boolean);
         var startIndex = images.indexOf(img);
         openLightbox(images, Math.max(0, startIndex));
       });

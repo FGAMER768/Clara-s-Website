@@ -176,9 +176,13 @@
   -webkit-backdrop-filter: blur(6px);
 }
 
-/* Les images des sliders deviennent cliquables : un léger indice visuel
-   au survol (desktop) pour signaler qu'elles s'agrandissent. */
-.media-slider__slide img {
+/* Les images des sliders et les tuiles du cadrillage deviennent
+   cliquables : un léger indice visuel au survol (desktop) pour
+   signaler qu'elles s'agrandissent. Le curseur est posé sur toute la
+   tuile (.gallery__item), pas seulement sur l'<img>, puisque la
+   légende en overlay fait aussi partie de la zone cliquable. */
+.media-slider__slide img,
+.gallery__item {
   cursor: zoom-in;
 }
 
