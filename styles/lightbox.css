@@ -1,0 +1,221 @@
+/*
+  Lightbox : visionneuse plein écran pour les images des sliders de
+  projet. Ouverte au clic sur une image de .media-slider, elle reprend
+  le même jeu d'images que le slider d'origine, avec navigation par
+  flèches (clic + clavier) et par swipe sur mobile.
+
+  Architecture volontairement simple : une seule <img> dans le DOM, dont
+  on change le "src" à chaque navigation (voir lightbox.js). Les
+  versions précédentes faisaient coulisser un rail de plusieurs slides
+  (via transform, puis via scroll natif), ce qui obligeait à mesurer des
+  largeurs et à les garder synchronisées avec la position affichée ; le
+  moindre décalage entre ces deux valeurs cassait l'affichage (images à
+  moitié visibles, écran vide). Une seule image affichée à la fois
+  supprime ce calcul entièrement : il n'y a plus rien à synchroniser.
+*/
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(17, 14, 23, 0.92);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity var(--duration-base) var(--ease-standard),
+    visibility 0s linear var(--duration-base);
+}
+
+.lightbox[data-open="true"] {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity var(--duration-base) var(--ease-standard);
+}
+
+.lightbox__stage {
+  position: relative;
+  width: min(92vw, 76rem);
+  height: min(86vh, 60rem);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-4);
+}
+
+.lightbox__image {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-raised);
+}
+
+/* Tant que l'image n'a pas fini de charger (fichier lourd, ou clic
+   avant la fin de son chargement dans le slider d'origine), elle n'a
+   pas de dimensions intrinsèques : avec width/height: auto ci-dessus,
+   ça donnerait une image 0x0, donc rien à l'écran. On réserve un
+   minimum visible et un indicateur de chargement pendant ce temps
+   plutôt qu'un vide silencieux. */
+.lightbox__image:not([data-loaded="true"]) {
+  min-width: 8rem;
+  min-height: 8rem;
+  background-color: rgba(255, 255, 255, 0.06);
+}
+
+.lightbox__stage::after {
+  content: "";
+  position: absolute;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  border: 3px solid rgba(255, 255, 255, 0.25);
+  border-top-color: rgba(255, 255, 255, 0.85);
+  animation: lightbox-spin 0.8s linear infinite;
+  opacity: 0;
+  transition: opacity var(--duration-fast) var(--ease-standard);
+}
+
+.lightbox__stage:has(.lightbox__image:not([data-loaded="true"]))::after {
+  opacity: 1;
+}
+
+@keyframes lightbox-spin {
+  to { transform: rotate(360deg); }
+}
+
+.lightbox__image--enter {
+  /* Petit zoom d'entrée pour marquer l'arrivée sur l'image, cohérent
+     avec les micro-interactions déjà présentes ailleurs sur le site. */
+  animation: lightbox-slide-in var(--duration-base) var(--ease-standard);
+}
+
+@keyframes lightbox-slide-in {
+  from { transform: scale(0.97); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.lightbox__close,
+.lightbox__nav {
+  position: absolute;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: var(--radius-pill);
+  background-color: rgba(30, 25, 38, 0.55);
+  color: #FFFFFF;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  transition: background-color var(--duration-fast) var(--ease-standard),
+    transform var(--duration-fast) var(--ease-standard);
+}
+
+.lightbox__close:hover,
+.lightbox__nav:hover:not(:disabled) {
+  background-color: rgba(30, 25, 38, 0.85);
+}
+
+.lightbox__nav:active:not(:disabled) {
+  transform: translateY(-50%) scale(0.94);
+}
+
+.lightbox__close {
+  top: var(--space-4);
+  right: var(--space-4);
+  width: 2.75rem;
+  height: 2.75rem;
+  z-index: 2;
+}
+
+.lightbox__close svg {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.lightbox__nav {
+  top: 50%;
+  width: 3rem;
+  height: 3rem;
+  transform: translateY(-50%);
+  z-index: 2;
+}
+
+.lightbox__nav svg {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.lightbox__nav:disabled {
+  opacity: 0.3;
+  cursor: default;
+}
+
+.lightbox__nav--prev {
+  left: var(--space-4);
+}
+
+.lightbox__nav--next {
+  right: var(--space-4);
+}
+
+.lightbox__status {
+  position: absolute;
+  bottom: var(--space-4);
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: var(--step-xs);
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.85);
+  background-color: rgba(30, 25, 38, 0.55);
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--radius-pill);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+/* Les images des sliders deviennent cliquables : un léger indice visuel
+   au survol (desktop) pour signaler qu'elles s'agrandissent. */
+.media-slider__slide img {
+  cursor: zoom-in;
+}
+
+@media (max-width: 40rem) {
+  .lightbox__stage {
+    width: 100vw;
+    height: 100dvh;
+    padding: var(--space-3);
+  }
+
+  .lightbox__nav {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+
+  .lightbox__nav--prev {
+    left: var(--space-2);
+  }
+
+  .lightbox__nav--next {
+    right: var(--space-2);
+  }
+
+  .lightbox__close {
+    top: var(--space-3);
+    right: var(--space-3);
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lightbox,
+  .lightbox__image,
+  .lightbox__image--enter,
+  .lightbox__nav {
+    transition: none;
+    animation: none;
+  }
+}

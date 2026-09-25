@@ -46,6 +46,19 @@
 
       var step = getStep();
       var maxScroll = viewport.scrollWidth - viewport.clientWidth;
+
+      // Tant que le viewport n'a pas encore de vraie largeur (images pas
+      // chargées, police pas prête, etc.), maxScroll peut valoir 0 ou
+      // négatif : on ne fige alors PAS les boutons sur "disabled", on
+      // attend simplement le prochain passage (resize/load/observer)
+      // pour ne jamais bloquer le slider dans un état figé.
+      if (maxScroll <= 0 && slides.length > 1) {
+        previousButton.disabled = viewport.scrollLeft <= 1;
+        nextButton.disabled = false;
+        status.textContent = "1 / " + slides.length;
+        return;
+      }
+
       var currentSlide = step ? Math.round(viewport.scrollLeft / step) : 0;
       previousButton.disabled = viewport.scrollLeft <= 1;
       nextButton.disabled = viewport.scrollLeft >= maxScroll - 1;
@@ -79,6 +92,18 @@
     // Les erreurs de chargement d'image (onerror inline) retirent des slides
     // après le premier rendu : on laisse une passe au navigateur puis on relit l'état.
     window.addEventListener("load", updateControls);
+
+    // Les images chargent en asynchrone et peuvent changer la largeur
+    // réelle du viewport/track après le premier rendu (avant que "load"
+    // ne se déclenche pour toute la page) : un ResizeObserver capte ça
+    // de façon fiable, plutôt que de dépendre uniquement de "load".
+    if ("ResizeObserver" in window) {
+      var resizeObserver = new ResizeObserver(function () {
+        updateControls();
+      });
+      resizeObserver.observe(viewport);
+    }
+
     updateControls();
   });
 })();
