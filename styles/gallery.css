@@ -1,0 +1,117 @@
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+  gap: var(--space-5);
+}
+
+.gallery__item {
+  background-color: var(--color-paper-raised);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-soft);
+}
+
+.gallery__image {
+  aspect-ratio: 4 / 5;
+  background-color: var(--color-accent-soft);
+  overflow: hidden;
+}
+
+.gallery__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.gallery__caption {
+  padding: var(--space-3) var(--space-4);
+  font-size: var(--step-sm);
+  color: var(--color-ink-muted);
+}
+
+.media-slider {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.media-slider__viewport {
+  min-width: 0;
+  overflow-x: auto;
+  overscroll-behavior-inline: contain;
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scroll-snap-type: x mandatory;
+}
+
+.media-slider__track {
+  display: flex;
+  width: 100%;
+  gap: var(--space-3);
+}
+
+.media-slider__slide {
+  flex: 0 0 calc((100% - var(--space-3)) / 2);
+  min-width: 0;
+  margin: 0;
+  scroll-snap-align: start;
+}
+
+.media-slider__slide img {
+  width: 100%;
+  aspect-ratio: var(--slider-ratio, 1920 / 1351);
+  object-fit: cover;
+  border-radius: var(--radius-sm);
+  background-color: var(--color-accent-soft);
+}
+
+.media-slider__button {
+  width: 2.5rem;
+  height: 2.5rem;
+  display: grid;
+  place-items: center;
+  flex: 0 0 auto;
+  border: 1px solid var(--color-border);
+  border-radius: 50%;
+  background-color: var(--color-paper-raised);
+  color: var(--color-ink);
+  font-size: var(--step-md);
+}
+
+.media-slider__button svg {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.media-slider__button:hover:not(:disabled) {
+  background-color: var(--color-accent-soft);
+}
+
+.media-slider__button:disabled {
+  cursor: default;
+  opacity: 0.4;
+}
+
+.media-slider__status {
+  margin-top: var(--space-3);
+  text-align: center;
+  color: var(--color-ink-muted);
+  font-size: var(--step-xs);
+}
+
+@media (max-width: 40rem) {
+  .media-slider {
+    gap: var(--space-2);
+  }
+
+  .media-slider__slide {
+    flex-basis: 100%;
+  }
+
+  .media-slider__button {
+    width: 2.25rem;
+    height: 2.25rem;
+  }
+}

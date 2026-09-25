@@ -1,0 +1,85 @@
+/*
+  Timeline horizontale : les années servent de repères visuels,
+  chaque étape défile dans un carrousel avec accrochage (scroll-snap).
+  Sur mobile, même logique horizontale, avec scroll tactile.
+*/
+
+.timeline {
+  position: relative;
+  margin-top: var(--space-7);
+  display: flex;
+  overflow-x: auto;
+  overscroll-behavior-inline: contain;
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scroll-snap-type: x proximity;
+  gap: var(--space-6);
+  padding-bottom: var(--space-4);
+  padding-top: var(--space-5);
+}
+
+.timeline__item {
+  position: relative;
+  flex: 0 0 16rem;
+  scroll-snap-align: start;
+  z-index: 1;
+}
+
+.timeline__marker {
+  box-sizing: border-box;
+  display: block;
+  width: 0.85rem;
+  height: 0.85rem;
+  border-radius: 50%;
+  background-color: var(--color-paper);
+  border: 2px solid var(--color-secondary);
+  margin-bottom: var(--space-3);
+}
+
+/* Ligne continue derrière les repères, portée par chaque item pour qu'elle
+   scrolle avec le contenu au lieu de rester fixe sur le conteneur visible.
+   Alignée sur le centre vertical réel du marker (sa hauteur bord compris). */
+.timeline__item::after {
+  content: "";
+  position: absolute;
+  left: 0.85rem;
+  right: calc(-1 * var(--space-6));
+  top: calc(0.85rem / 2);
+  height: 2px;
+  background-color: var(--color-border);
+  z-index: 0;
+}
+
+.timeline__item:last-child::after {
+  content: none;
+}
+
+.timeline__year {
+  font-size: var(--step-sm);
+  font-weight: 700;
+  color: var(--color-secondary);
+}
+
+.timeline__title {
+  margin-top: var(--space-1);
+  font-size: var(--step-lg);
+}
+
+.timeline__text {
+  margin-top: var(--space-2);
+  color: var(--color-ink-muted);
+}
+
+@media (max-width: 32rem) {
+  .timeline {
+    gap: var(--space-5);
+  }
+
+  .timeline__item {
+    flex-basis: 13rem;
+  }
+
+  .timeline__item::after {
+    right: calc(-1 * var(--space-5));
+  }
+}
