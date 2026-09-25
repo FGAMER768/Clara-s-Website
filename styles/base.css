@@ -48,9 +48,25 @@ a {
   text-decoration: none;
 }
 
+/* Supprime le surlignement bleu/gris que les navigateurs mobiles
+   (Chrome, Safari) posent par défaut au tap sur un élément cliquable.
+   Appliqué à tous les boutons ET liens du site, y compris ceux générés
+   dynamiquement en JS (lightbox, etc.) puisqu'ils héritent de ces
+   règles génériques. Les boutons gardent leurs propres retours visuels
+   au tap (voir .btn-ripple ci-dessous et les :active déjà en place
+   dans chaque composant), donc rien n'est perdu en feedback tactile,
+   juste le highlight générique et peu soigné du navigateur. */
+a,
+button {
+  -webkit-tap-highlight-color: transparent;
+  tap-highlight-color: transparent;
+}
+
 button {
   font-family: inherit;
   cursor: pointer;
+  -webkit-user-select: none;
+  user-select: none;
 }
 
 ul {

@@ -96,28 +96,48 @@
   color: rgba(255, 255, 255, 0.75);
 }
 
-/* États hover / focus : montée de la carte, halo, overlay et bouton play */
-.showcase__tile:hover,
+/* États hover / focus : montée de la carte, halo, overlay et bouton play.
+   :hover réservé aux dispositifs à pointeur précis (voir media query
+   ci-dessous) ; :focus-visible reste actif partout, y compris sur
+   tactile avec un clavier externe ou la navigation par switch. */
 .showcase__tile:focus-visible {
   transform: translateY(-0.5rem) scale(1.04);
   box-shadow: var(--shadow-raised);
 }
 
-.showcase__tile:hover::before,
 .showcase__tile:focus-visible::before {
   opacity: 0.55;
 }
 
-.showcase__tile:hover img,
 .showcase__tile:focus-visible img {
   transform: scale(1.08);
   filter: brightness(0.75);
 }
 
-.showcase__tile:hover .showcase__overlay,
 .showcase__tile:focus-visible .showcase__overlay {
   opacity: 1;
   transform: translateY(0);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .showcase__tile:hover {
+    transform: translateY(-0.5rem) scale(1.04);
+    box-shadow: var(--shadow-raised);
+  }
+
+  .showcase__tile:hover::before {
+    opacity: 0.55;
+  }
+
+  .showcase__tile:hover img {
+    transform: scale(1.08);
+    filter: brightness(0.75);
+  }
+
+  .showcase__tile:hover .showcase__overlay {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .showcase__tile:focus-visible {

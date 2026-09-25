@@ -96,9 +96,16 @@
   transition: color var(--duration-fast) var(--ease-standard);
 }
 
-.project-card__link:hover {
-  color: var(--color-secondary);
-  border-color: var(--color-secondary);
+/* :hover réservé aux dispositifs à pointeur précis (souris, trackpad) :
+   sur tactile, un tap déclenche souvent aussi le :hover juste après (ou
+   en même temps que) le :active, ce qui cumule les deux styles au lieu
+   de n'appliquer que le retour au tap. Voir aussi ripple.css/ripple.js
+   pour l'effet de retour tactile dédié. */
+@media (hover: hover) and (pointer: fine) {
+  .project-card__link:hover {
+    color: var(--color-secondary);
+    border-color: var(--color-secondary);
+  }
 }
 
 /* Sous-sections internes d'un projet : rôle, walkthrough, galerie d'images */
@@ -180,9 +187,58 @@
   border-bottom: 2px solid var(--color-accent);
 }
 
-.mini-card__link:hover {
-  color: var(--color-secondary);
-  border-color: var(--color-secondary);
+@media (hover: hover) and (pointer: fine) {
+  .mini-card__link:hover {
+    color: var(--color-secondary);
+    border-color: var(--color-secondary);
+  }
+}
+
+/* Petits exercices : deux vidéos avec leur descriptif, en grille */
+.exercises-heading-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.exercises-heading-row__logo {
+  height: 1.5em;
+  width: auto;
+}
+
+.exercises-heading-row__logo--dark {
+  display: none;
+}
+
+:root[data-theme="dark"] .exercises-heading-row__logo--light {
+  display: none;
+}
+
+:root[data-theme="dark"] .exercises-heading-row__logo--dark {
+  display: block;
+}
+
+.exercise-grid {
+  display: grid;
+  gap: var(--space-6);
+  margin-top: var(--space-5);
+  grid-template-columns: 1fr;
+}
+
+.exercise-card__title {
+  margin-top: var(--space-4);
+  font-size: var(--step-md);
+}
+
+.exercise-card__text {
+  margin-top: var(--space-2);
+  color: var(--color-ink-muted);
+}
+
+@media (min-width: 48rem) {
+  .exercise-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 @media (min-width: 60rem) {

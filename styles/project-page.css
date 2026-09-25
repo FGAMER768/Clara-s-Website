@@ -22,9 +22,14 @@
   transition: color var(--duration-fast) var(--ease-standard);
 }
 
-.project-page__back:hover,
 .project-page__back:focus-visible {
   color: var(--color-secondary);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .project-page__back:hover {
+    color: var(--color-secondary);
+  }
 }
 
 .project-page__back svg {

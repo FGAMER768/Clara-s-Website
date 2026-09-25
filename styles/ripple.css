@@ -1,0 +1,44 @@
+/*
+  Effet "goutte d'eau" (ripple) au tap/clic sur les boutons interactifs,
+  en remplacement du surlignement bleu par défaut des navigateurs
+  mobiles (supprimé globalement dans base.css via
+  -webkit-tap-highlight-color: transparent).
+
+  Le cercle est positionné et dimensionné en JS (voir scripts/ripple.js)
+  au point exact du tap, puis grandit en s'estompant grâce à cette seule
+  classe CSS ; le JS retire l'élément une fois l'animation terminée.
+*/
+
+.ripple-host {
+  position: relative;
+  overflow: hidden;
+  /* Empêche l'effet ripple, qui vit à l'intérieur du bouton, de casser
+     un éventuel border-radius existant en dépassant ses coins. */
+  isolation: isolate;
+}
+
+.ripple {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 50%;
+  background-color: currentColor;
+  opacity: 0.35;
+  pointer-events: none;
+  transform: translate(-50%, -50%) scale(0);
+  animation: ripple-spread 550ms var(--ease-standard, ease-out) forwards;
+  will-change: transform, opacity;
+}
+
+@keyframes ripple-spread {
+  to {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ripple {
+    display: none;
+  }
+}

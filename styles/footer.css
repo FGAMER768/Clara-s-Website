@@ -19,8 +19,10 @@
   flex-wrap: wrap;
 }
 
-.site-footer__links a:hover {
-  color: var(--color-accent-strong);
+@media (hover: hover) and (pointer: fine) {
+  .site-footer__links a:hover {
+    color: var(--color-accent-strong);
+  }
 }
 
 .contact-section {
@@ -43,6 +45,8 @@
   padding-bottom: var(--space-1);
 }
 
-.contact-section__email:hover {
-  color: var(--color-secondary);
+@media (hover: hover) and (pointer: fine) {
+  .contact-section__email:hover {
+    color: var(--color-secondary);
+  }
 }
