@@ -4,6 +4,7 @@
   overflow: hidden;
   padding-top: clamp(7rem, 14vw, 9rem);
   padding-bottom: clamp(5rem, 10vw, 8rem);
+  padding-inline: var(--space-5);
   display: flex;
   flex-direction: column;
   align-items: center;
