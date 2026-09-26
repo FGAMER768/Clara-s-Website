@@ -96,25 +96,48 @@
   color: rgba(255, 255, 255, 0.75);
 }
 
-/* États hover / focus : montée de la carte, halo, overlay et bouton play */
-.showcase__tile:hover,
+/* États hover : montée de la carte, halo, overlay. Restreint aux
+   vrais dispositifs à pointeur précis (souris/trackpad) : sur
+   tactile, :hover n'a pas de sens réel (pas de survol avant contact)
+   et reste souvent "collé" après un tap tant qu'on ne touche pas
+   ailleurs, ce qui donne une carte visuellement bloquée en hover. */
+@media (hover: hover) and (pointer: fine) {
+  .showcase__tile:hover {
+    transform: translateY(-0.5rem) scale(1.04);
+    box-shadow: var(--shadow-raised);
+  }
+
+  .showcase__tile:hover::before {
+    opacity: 0.55;
+  }
+
+  .showcase__tile:hover img {
+    transform: scale(1.08);
+    filter: brightness(0.75);
+  }
+
+  .showcase__tile:hover .showcase__overlay {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Focus clavier : toujours actif, quel que soit l'appareil (Tab reste
+   un vrai signal d'intention, contrairement au hover tactile). */
 .showcase__tile:focus-visible {
   transform: translateY(-0.5rem) scale(1.04);
   box-shadow: var(--shadow-raised);
 }
 
-.showcase__tile:hover::before,
 .showcase__tile:focus-visible::before {
   opacity: 0.55;
 }
 
-.showcase__tile:hover img,
 .showcase__tile:focus-visible img {
   transform: scale(1.08);
   filter: brightness(0.75);
 }
 
-.showcase__tile:hover .showcase__overlay,
 .showcase__tile:focus-visible .showcase__overlay {
   opacity: 1;
   transform: translateY(0);
@@ -123,6 +146,66 @@
 .showcase__tile:focus-visible {
   outline: 2px solid var(--color-focus);
   outline-offset: 3px;
+}
+
+/* Appareils sans hover fiable (tactile) : pas d'animation d'entrée,
+   l'overlay d'infos (titre, rôle, année) reste visible en permanence
+   plutôt que caché derrière un survol qui n'existe pas sur ces
+   écrans. Le halo et la montée de carte restent réservés à la souris
+   (purement décoratifs, sans perte d'info).
+   Le dégradé et le texte sont resserrés par rapport à la version
+   hover : certaines tuiles (travaux) ont un "meta" long, et un
+   overlay figé en permanence ne doit pas manger toute la jaquette. */
+@media (hover: none) {
+  .showcase__tile img {
+    filter: brightness(0.8);
+  }
+
+  .showcase__overlay {
+    opacity: 1;
+    transform: translateY(0);
+    /* Dégradé plus bas et plus progressif : l'image reste lisible
+       sur la majorité de la tuile, le texte garde un fond assez
+       sombre juste où il en a besoin. */
+    background: linear-gradient(
+      to top,
+      rgba(17, 14, 23, 0.95) 0%,
+      rgba(17, 14, 23, 0.78) 30%,
+      rgba(17, 14, 23, 0) 62%
+    );
+    padding: var(--space-3);
+  }
+
+  /* Le "meta" (parfois long : "Devoir de deuxième année, gestion de
+     production") est la ligne la plus à risque de déborder ; on la
+     tronque sur une seule ligne plutôt que de laisser le bloc de
+     texte grossir et couvrir l'image. */
+  .showcase__meta {
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 0.75rem;
+  }
+
+  .showcase__title {
+    margin-top: 0.15rem;
+    font-size: var(--step-sm);
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  /* Le tag (sous-titre) est la description la plus longue : sur
+     tactile, où l'on ne peut pas compter sur un hover pour "faire de
+     la place", on le masque pour garder l'overlay compact. Le titre
+     et le meta suffisent à identifier le projet ; le sous-titre
+     complet reste disponible sur la fiche projet elle-même. */
+  .showcase__tag {
+    display: none;
+  }
 }
 
 @media (min-width: 32rem) {
