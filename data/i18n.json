@@ -177,7 +177,10 @@
     "gallery.item17.alt": "Expérimentation de plusieurs techniques graphiques",
     "gallery.item17.caption": "Expérimentation de plusieurs techniques graphiques.",
     "gallery.item18.alt": "Dessin digital",
-    "gallery.item18.caption": "Dessin digital."
+    "gallery.item18.caption": "Dessin digital.",
+    "gallery.video3d.iframeTitle": "Production 3D sur 3DS Max, intégrée dans Unreal Engine",
+    "gallery.video3d.captionLine1": "Production 3D sur 3DS Max. Intégré dans Unreal Engine.",
+    "gallery.video3d.captionLine2": "L’environnement interagit avec la force du vent."
   },
   "en": {
     "meta.title": "Clara Cahours de Virgile - Portfolio",
@@ -357,6 +360,9 @@
     "gallery.item17.alt": "Experimentation with several graphic techniques",
     "gallery.item17.caption": "Experimentation with several graphic techniques.",
     "gallery.item18.alt": "Digital drawing",
-    "gallery.item18.caption": "Digital drawing."
+    "gallery.item18.caption": "Digital drawing.",
+    "gallery.video3d.iframeTitle": "3D production made in 3DS Max, integrated into Unreal Engine",
+    "gallery.video3d.captionLine1": "3D production in 3DS Max. Integrated into Unreal Engine.",
+    "gallery.video3d.captionLine2": "The environment reacts to wind force."
   }
 }
