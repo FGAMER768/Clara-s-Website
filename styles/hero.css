@@ -87,6 +87,7 @@
     var(--color-accent) 360deg
   );
   animation: hero-ring-spin 11s linear infinite;
+  will-change: transform;
 }
 
 /* Couche 2 : un second ruban, plus fin et plus saturé, en contre-rotation
@@ -107,6 +108,7 @@
   mix-blend-mode: screen;
   opacity: 0.85;
   animation: hero-ring-spin-reverse 16s linear infinite;
+  will-change: transform;
 }
 
 /* Couche 3 : scintillement, un point de lumière chaude qui pulse en
@@ -123,6 +125,7 @@
   mix-blend-mode: overlay;
   filter: blur(0.6rem);
   animation: hero-ring-shimmer 5.5s ease-in-out infinite;
+  will-change: opacity;
 }
 
 @keyframes hero-ring-spin {
@@ -156,6 +159,19 @@
   opacity: 0.55;
   animation: hero-ring-shimmer 5.5s ease-in-out infinite;
   animation-delay: -1.5s;
+  will-change: opacity;
+}
+
+/* Coupe les animations (rotation, contre-rotation, scintillement,
+   grain) quand le hero est hors du viewport (piloté par
+   scripts/hero-ring.js via IntersectionObserver). Le rendu final ne
+   change pas : on économise juste le calcul quand personne ne le voit,
+   par exemple une fois qu'on a scrollé plus bas dans la page. */
+.hero__ring--paused .hero__ring__layer--flow,
+.hero__ring--paused .hero__ring__layer--flow-alt,
+.hero__ring--paused .hero__ring__layer--shimmer,
+.hero__ring--paused .hero__ring__grain {
+  animation-play-state: paused;
 }
 
 .hero__portrait-wrap {
