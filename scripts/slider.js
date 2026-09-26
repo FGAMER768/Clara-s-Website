@@ -2,13 +2,50 @@
   "use strict";
 
   document.querySelectorAll("[data-slider]").forEach(function (slider) {
+    // Toute la mise en place d'UN slider est protégée individuellement :
+    // une erreur inattendue sur un slider ne doit jamais empêcher les
+    // AUTRES sliders de la même page de fonctionner. Sans ce garde-fou,
+    // une exception non interceptée dans un callback forEach stoppe net
+    // toute la boucle : les sliders suivants ne reçoivent alors jamais
+    // leurs écouteurs de clic, ce qui les rend inertes sans la moindre
+    // erreur visible pour qui ne regarde pas la console.
+    try {
+      setupSlider(slider);
+    } catch (error) {
+      console.error("Slider non initialisé :", slider, error);
+    }
+  });
+
+  function setupSlider(slider) {
     var viewport = slider.querySelector("[data-slider-viewport]");
     var previousButton = slider.querySelector("[data-slider-prev]");
     var nextButton = slider.querySelector("[data-slider-next]");
-    var status = slider.querySelector("[data-slider-status]");
+    // Le <p> de statut ("3 / 7") est placé, dans le HTML actuel du site,
+    // juste APRÈS .media-slider plutôt qu'à l'intérieur (comme un frère,
+    // pas un enfant) : slider.querySelector() ne le trouve donc jamais.
+    // On élargit la recherche au parent direct du slider, qui contient
+    // les deux, plutôt que d'exiger que le statut soit dans le slider
+    // lui-même. Le statut est purement informatif (aria-live) : son
+    // absence éventuelle ne doit de toute façon jamais empêcher les
+    // flèches de fonctionner, d'où le fallback sur un objet inoffensif.
+    var status =
+      slider.querySelector("[data-slider-status]") ||
+      (slider.parentElement && slider.parentElement.querySelector("[data-slider-status]"));
 
-    if (!viewport || !previousButton || !nextButton || !status) {
+    if (!viewport || !previousButton || !nextButton) {
+      console.warn("Slider incomplet, éléments manquants :", {
+        slider: slider,
+        viewport: viewport,
+        previousButton: previousButton,
+        nextButton: nextButton
+      });
       return;
+    }
+
+    if (!status) {
+      // Pas bloquant : le slider reste pleinement utilisable sans son
+      // indicateur "X / N", on évite juste qu'écrire dedans plante.
+      status = { textContent: "" };
     }
 
     // Les slides dont l'image ne charge pas se retirent elles-mêmes (onerror),
@@ -17,15 +54,36 @@
       return slider.querySelectorAll(".media-slider__slide");
     }
 
-    function getStep() {
+    // Position de scroll de la Nème slide, lue directement dans le DOM
+    // (offsetLeft) plutôt que recalculée en multipliant un "pas" par un
+    // index : ça reste juste même si les slides n'ont pas exactement la
+    // même largeur (arrondis du navigateur, dernière slide partielle...),
+    // et ça tombe toujours exactement sur le point d'alignement
+    // scroll-snap de la slide visée au lieu d'une position arithmétique
+    // qui peut légèrement le manquer.
+    function getSlideOffset(index) {
       var slides = getSlides();
-      if (!slides.length) {
-        return 0;
-      }
-      var track = slider.querySelector(".media-slider__track");
-      var styles = window.getComputedStyle(track);
-      var gap = parseFloat(styles.columnGap) || 0;
-      return slides[0].getBoundingClientRect().width + gap;
+      var target = slides[Math.max(0, Math.min(index, slides.length - 1))];
+      return target ? target.offsetLeft : 0;
+    }
+
+    // Index de la slide actuellement la plus proche du bord gauche du
+    // viewport, déduit de la position de scroll réelle plutôt que d'une
+    // division approximative scrollLeft / step (qui peut dériver d'une
+    // unité selon les arrondis, faisant passer une slide au clic).
+    function getCurrentIndex() {
+      var slides = getSlides();
+      var scrollLeft = viewport.scrollLeft;
+      var closestIndex = 0;
+      var closestDistance = Infinity;
+      slides.forEach(function (slide, index) {
+        var distance = Math.abs(slide.offsetLeft - scrollLeft);
+        if (distance < closestDistance) {
+          closestDistance = distance;
+          closestIndex = index;
+        }
+      });
+      return closestIndex;
     }
 
     function updateControls() {
@@ -44,7 +102,6 @@
         return;
       }
 
-      var step = getStep();
       var maxScroll = viewport.scrollWidth - viewport.clientWidth;
 
       // Tant que le viewport n'a pas encore de vraie largeur (images pas
@@ -59,21 +116,23 @@
         return;
       }
 
-      var currentSlide = step ? Math.round(viewport.scrollLeft / step) : 0;
+      var currentSlide = getCurrentIndex();
       previousButton.disabled = viewport.scrollLeft <= 1;
       nextButton.disabled = viewport.scrollLeft >= maxScroll - 1;
       status.textContent = Math.min(currentSlide + 1, slides.length) + " / " + slides.length;
     }
 
     function moveSlider(direction) {
-      var step = getStep();
-      if (!step) {
+      var slides = getSlides();
+      if (!slides.length) {
         return;
       }
-      var targetScroll = viewport.scrollLeft + direction * step;
+      var targetIndex = getCurrentIndex() + direction;
+      var maxScroll = viewport.scrollWidth - viewport.clientWidth;
+      var targetOffset = getSlideOffset(targetIndex);
 
       viewport.scrollTo({
-        left: Math.max(0, Math.min(targetScroll, viewport.scrollWidth - viewport.clientWidth)),
+        left: Math.max(0, Math.min(targetOffset, maxScroll)),
         behavior: "smooth"
       });
     }
@@ -105,5 +164,5 @@
     }
 
     updateControls();
-  });
+  }
 })();
