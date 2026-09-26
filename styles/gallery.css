@@ -116,12 +116,6 @@
   }
 }
 
-@media (max-width: 26rem) {
-  .gallery {
-    grid-template-columns: 1fr;
-  }
-}
-
 @media (prefers-reduced-motion: reduce) {
   .gallery__image img,
   .gallery__image::after,
@@ -133,14 +127,6 @@
   .gallery__item:focus-within .gallery__image img {
     transform: none;
   }
-}
-
-/*
-  Suite de productions visuelles sous le cadrillage : même largeur
-  que le reste des sections (container), rythme vertical identique.
-*/
-.gallery__extra {
-  margin-top: var(--space-6);
 }
 
 .media-slider {
