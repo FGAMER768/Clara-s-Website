@@ -246,3 +246,46 @@
   color: var(--color-accent-strong);
   border-color: var(--color-accent-strong);
 }
+
+/* La règle globale (base.css) réduit déjà animation-duration à ~0ms
+   partout, ce qui suffit à stopper visuellement la rotation. Mais pour
+   l'anneau, ça laisse chaque couche figée sur l'état où son timing
+   quasi instantané est tombé — par exemple hero-ring-shimmer peut se
+   figer en plein pic d'opacité plutôt qu'à un niveau de repos choisi.
+   On coupe donc ici explicitement les 4 animations et on fixe pour
+   chaque couche l'opacité de repos qu'elle aurait dans un cycle "calme"
+   (ex: hero-ring-shimmer à son minimum, 0.25, plutôt qu'à son pic à 0.9),
+   pour un rendu statique intentionnel plutôt qu'un instantané aléatoire. */
+@media (prefers-reduced-motion: reduce) {
+  .hero__ring__layer--flow,
+  .hero__ring__layer--flow-alt,
+  .hero__ring__layer--shimmer,
+  .hero__ring__grain {
+    animation: none;
+  }
+
+  .hero__ring__layer--shimmer {
+    opacity: 0.25;
+  }
+
+  .hero__ring__grain {
+    opacity: 0.35;
+  }
+
+  .hero__portrait,
+  .hero__portrait img {
+    transition: none;
+  }
+
+  .hero__portrait:hover {
+    transform: none;
+  }
+
+  .hero__portrait:hover img {
+    transform: none;
+  }
+
+  .hero__cta {
+    transition: none;
+  }
+}
