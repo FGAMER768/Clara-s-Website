@@ -6,6 +6,15 @@
   <title>Clara Cahours de Virgile - Portfolio</title>
   <meta name="description" content="Portfolio de Clara Cahours de Virgile, game designer et artiste : projets de jeu, level design et productions visuelles." />
 
+  <!-- Chargé en tout premier, avant le CSS : pose data-theme sur <html>
+       avant le premier paint, pour qu'aucun élément dépendant du thème
+       (couleurs, icône lune/soleil, logo Unity clair/sombre...) n'ait le
+       temps de s'afficher dans sa version par défaut puis de "flasher"
+       vers la bonne version une fois le script exécuté. Un <script> en
+       bas de page, lui, ne joue qu'une fois le HTML et le CSS déjà
+       rendus, d'où le flash. -->
+  <script src="scripts/theme.js"></script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -463,7 +472,6 @@
     </div>
   </footer>
 
-  <script src="scripts/theme.js"></script>
   <script src="scripts/i18n.js"></script>
   <script src="scripts/navbar.js"></script>
   <script src="scripts/slider.js"></script>

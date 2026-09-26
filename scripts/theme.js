@@ -45,6 +45,11 @@
     if (!toggle) {
       return;
     }
+    // Le premier appel à applyTheme() a lieu avant que <body> (et donc ce
+    // bouton) n'existe dans le DOM : aria-pressed n'a pas pu être mis à
+    // jour à ce moment-là. On le resynchronise ici avec le thème déjà
+    // appliqué, dès que le bouton est disponible.
+    toggle.setAttribute("aria-pressed", root.getAttribute("data-theme") === "dark" ? "true" : "false");
     toggle.addEventListener("click", function () {
       var next = root.getAttribute("data-theme") === "dark" ? "light" : "dark";
       applyTheme(next);
